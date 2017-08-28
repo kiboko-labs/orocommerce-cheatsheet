@@ -4,7 +4,8 @@ Remove Price filter and sorter
 Description
 -----------
 
-To remove Price filter and sorter in `frontend_product_search_datagrid` it is necessary to create an EventListener to edit the datagrid 
+To remove Price filter and sorter in `frontend_product_search_datagrid` it is necessary to create a listener to edit the datagrid 
+Just make sure it will be loaded after the original listener.
 
 Services
 --------
