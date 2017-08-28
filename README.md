@@ -4,4 +4,10 @@ OroCommerce Cheatsheet
 PostgreSQL import queries
 -------------------------
 
-* [postgresql/insert-medias.sql](Insert medias)
+* [Insert medias](postgresql/insert-medias.sql)
+
+
+Backend tips
+------------
+
+* [Remove Price filter and sorter](backend/remove-price-filter.md)
