@@ -1,4 +1,4 @@
-how to handle Migrations
+How to handle Migrations
 ========================
 
 Schema manipulation
@@ -34,4 +34,4 @@ This class must extend `Doctrine\Common\DataFixtures\AbstractFixture`
 Going further
 -------------
 
-[How-To: create an Enum](add-enum.md)
+[How-To: create an Enum](enum.md)

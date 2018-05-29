@@ -1,4 +1,4 @@
-Creating an enum
+How-to: managing enums
 ================
 
 Schema installer/updater class
@@ -122,4 +122,17 @@ class LoadLabelData extends AbstractFixture
     }
 }
 
+```
+
+Delete an enum
+--------------
+
+In your migration/update class, add the following snippet:
+
+```php
+<?php
+
+    $queries->addPreQuery(
+        new RemoveEnumFieldQuery(Foo::class, 'foo_bar')
+    );
 ```
