@@ -38,3 +38,9 @@ Sylius tips
 ------------
 
 * [Installer Sylius en Local](sylius/install-sylius.md)
+
+
+Environnement de travail tips
+------------
+
+* [Installer Sylius en Local](sylius/install-sylius.md)
