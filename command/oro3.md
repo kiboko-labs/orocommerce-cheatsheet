@@ -82,8 +82,20 @@ bin/console oro:translation:load
 bin/console oro:translation:dump 
 ```
 
+```bash
+bin/console oro:translation:dump && bin/console oro:localization:dump
+```
+
+Load with parameters :
+```bash
+bin/console oro:translation:load --languages=en --languages=fr --rebuild-cache
+```
+
 **Gerate JS routing (Api/Components)**
 
 ```bash
 bin/console fos:js-routing:dump --target web/js/routes.js 
 ```
+
+## And more
+If you need Bruce's power : https://github.com/kiboko-labs/KibokoArmageddonBundle
