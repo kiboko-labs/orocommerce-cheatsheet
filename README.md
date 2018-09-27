@@ -4,7 +4,7 @@ OroCommerce Cheatsheet
 Useful commands
 -------------------------
 
-* [Oro 2.x](command/oro2.md)
+* [Oro 1.x](command/oro1.md)
 * [Oro 3.x](command/oro3.md)
 
 PostgreSQL import queries

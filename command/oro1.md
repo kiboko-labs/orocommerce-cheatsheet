@@ -1,4 +1,4 @@
-Useful command with Oro 2.x
+Useful command with Oro 1.x
 ========================
 
 
