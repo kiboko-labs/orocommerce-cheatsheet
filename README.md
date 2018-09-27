@@ -31,3 +31,9 @@ Docker
 
 * [Comment creere une base de donnée (Postgres/mySql) avec Docker](docker/docker-compose.md)
 * [Supprimer/ReCréer sa machine virtuelle](docker/create-docker-virtual-machine.md)
+
+
+Sylius tips
+------------
+
+* [Installer Sylius en Local](sylius/install-sylius.md)
