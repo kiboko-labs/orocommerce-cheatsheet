@@ -19,7 +19,7 @@ bin/console oro:message-queue:consume -vvv
 > Effacer le cache 
 
 ```bash
-rm -rf app/cache/*
+rm -rf var/cache/*
 ```
 
 > Mot de passe oublié
