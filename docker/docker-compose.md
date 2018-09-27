@@ -65,25 +65,25 @@ docker-compose up
 
 ###  Quelques commandes utiles
 
-> Voir vos images
+#### Voir vos images
 
 ```bash
 docker images
 ```
 
-> Setter vos variables d'environment 
+#### Setter vos variables d'environment 
 
 ```bash
 eval $(docker-machine env default) 
 ```
 
-> Voir si elles sont bien settées
+#### Voir si elles sont bien settées
 
 ```bash
 env | grep DOCKER
 ```
 
-> Les "désseter"
+#### Les "désseter"
 
 ```bash
  unset DOCKER_TLS_VERIFY
@@ -92,7 +92,7 @@ env | grep DOCKER
  unset DOCKER_HOST
  ```
  
-> Ou
+#### Ou
 
 ```bash
  unset ${!DOCKER_*}
