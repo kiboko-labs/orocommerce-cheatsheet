@@ -1,7 +1,7 @@
 Useful command with Oro 3.x
 ========================
 
-##Generic
+## Generic
 
 **Install**
 
@@ -31,7 +31,7 @@ rm -rf var/cache/*
 ```
 
 
-##Assets
+## Assets
 **Install assets**
 
 ```bash
@@ -46,7 +46,7 @@ bin/console oro:asset:install --symlink
 ```
 
 
-##Migrations
+## Migrations
 **Schema migrations**
 
 ```bash
@@ -59,7 +59,7 @@ bin/console oro:migration:load
 bin/console oro:migration:data:load
 ```
 
-##Users
+## Users
 
 **Password changing**
 
@@ -73,7 +73,7 @@ bin/console oro:user:update nomUser --user-password=root
 bin/console oro:user:impersonate user 
 ```
 
-##Others
+## Others
 
 **Translations**
 
