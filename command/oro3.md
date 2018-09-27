@@ -1,14 +1,22 @@
 Useful command with Oro 3.x
 ========================
 
+#### Generic
 
-> Lancer la Consume-list
+**Install**
+
+```bash
+composer install --prefer-dist --no-dev
+bin/console oro:install --timeout=0
+ ```
+
+**Start message queue consume**
 
 ```bash
 bin/console oro:message-queue:consume
  ```
 
-> Avec plus ou moins d'informations
+with less or more informations
 
 ```bash
 bin/console oro:message-queue:consume -v
@@ -16,56 +24,65 @@ bin/console oro:message-queue:consume -vv
 bin/console oro:message-queue:consume -vvv
  ```
    
-> Effacer le cache 
+**Remove cache**
 
 ```bash
 rm -rf var/cache/*
 ```
 
-> Mot de passe oublié
 
-```bash
-bin/console oro:user:update nomUser --user-password=root
-```
-
-> Génerer les assets
+#### Assets
+**Install assets**
 
 ```bash
 bin/console oro:asset:install && bin/console assetic:dump
+bin/console oro:assets:install -e dev && bin/console assetic:dump -e dev
 ```
 
-> Faire un symlink (ne marche pas en cas de création de fichier)
+with symlink (without new file creation)
 
 ```bash
 bin/console oro:asset:install --symlink
 ```
 
-> Lancer les migrations de schema
+
+#### Migrations
+**Schema migrations**
 
 ```bash
 bin/console oro:migration:load
 ```
 
-> Lancer les migrations de data
+**Data migrations**
 
 ```bash
 bin/console oro:migration:data:load
 ```
 
-> Creer un token d'accès limité dans le temps
+#### Users
+
+**Password changing**
+
+```bash
+bin/console oro:user:update nomUser --user-password=root
+```
+
+**Create a limited access token over time**
 
 ```bash
 bin/console oro:user:impersonate user 
 ```
 
-> Récuperer/Génerer Traductions
+#### Others
+
+**Translations**
 
 ```bash
 bin/console oro:translation:load
 bin/console oro:translation:dump 
 ```
 
-> Génerer les routes JS (Api/Components)
+**Gerate JS routing (Api/Components)**
 
 ```bash
 bin/console fos:js-routing:dump --target web/js/routes.js 
