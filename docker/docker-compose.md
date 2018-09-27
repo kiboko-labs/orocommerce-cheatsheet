@@ -2,11 +2,11 @@
 
 > Je veux mettre en place une base de données MySql ou Postgres avec Docker.
 
-### Comment créer un docker-compose.yml pour Postgres ou MySql
+### Comment créer un docker-compose.yml pour Postgres ou MySql :
 
 > Mettez vous à la racine de votre projet et créez un nouveau fichier docker-compose.yml
 
-#### Pour Postgres
+#### Pour Postgres :
 
 > Copier-coller ce contenu :
 
@@ -26,7 +26,7 @@
 
 > Le port de gauche est celui avec lequel votre application se connectera, vous pouver donc le changer. L'autre et celui qu'utilise docker en interne, donc ne le changez pas.
 
-#### pour MySql
+#### pour MySql :
 
 ```yml
 version: "2.0"
@@ -63,7 +63,7 @@ cd laracinedevotreprojet
 docker-compose up
 ```
 
-###  Quelques commandes utiles
+###  Quelques commandes utiles :
 
 #### Voir vos images
 
