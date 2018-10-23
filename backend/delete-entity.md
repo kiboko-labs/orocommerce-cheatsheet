@@ -3,7 +3,7 @@
 > Je supprimer une entité proprement 
 
 ### Comment supprimer une entitté
-php app/console cache:clear -e dev
+
 > Vider le cache
 ```bash
 php app/console cache:clear -e dev
