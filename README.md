@@ -14,7 +14,11 @@ Backend tips
 * [Comment créer un EventListener pour modifier une DataGrid](backend/event-listener-datagrid.md)
 * [Gérer dynamiquement des actions dans une datagrid](backend/dynamic-action-datagrid.md)
 * [Comment supprimer proprement une entitée](backend/delete-entity.md)
-* [Installer Xdebug - php 7.1 - MacOS](environment/installer-xdebug-php71.md)
+
+Environment tips
+------------
+
+* [Installer Xdebug pour php 7.1 sur MacOS](environment/installer-xdebug-php71.md)
 
 
 Migration tips
