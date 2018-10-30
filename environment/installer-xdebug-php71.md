@@ -71,7 +71,7 @@ zend_extension="/usr/local/opt/php71-xdebug/xdebug.so"
 
 xdebug.remote_enable=1
 xdebug.remote_host= 127.0.0.1
-xdebug.remote_port=9001
+xdebug.remote_port=9000
 xdebug.remote_log ="/usr/local/etc/php/7.1/conf.d/ext-xdebug.log"
 xdebug.idekey = PHPSTORM
 ```
@@ -84,19 +84,36 @@ xdebug.idekey = PHPSTORM
 
 ### Configurer PHPStorm
 > On va dans Préference > Language & Framework > PHP   
+
 ![](/Assets/images/xdebug/xdebugPhpPreference.png)   
-> Dans Cli Interpreter, on choisi notre php 7.1, et on clique sur les "..."   
+
+> Dans Cli Interpreter, on choisi notre php 7.1, et on clique sur les "..."  
+
 ![](/Assets/images/xdebug/xdebugPhpSettings.png)      
+
 > On oublie pas de mettre le chemin de l'extension (La valeur de zend_extension)
 
-> On va dans Run > Edit Configuration > Le bouton + > PHP Web PAGE      
+> On va dans Run > Edit Configuration > Le bouton + > PHP Web PAGE     
+ 
 ![](/Assets/images/xdebug/xebugWebPage.png)   
+
 >On créer le serveur   
-![](/Assets/images/xdebug/xdebugServer.png)      
+
+![](/Assets/images/xdebug/xdebugServer.png)  
+    
 > Host : Vous mettez l'IP que vous utilisez avec le app/console server:start   
 > Port : Pareil   
 > On oublie pas de sélectionner Xdebug   
-> Mapping : Vous n'en mettez pas, et que vous avez une erreur sans, mettez le même chemin à droite qu'à gauche.
+> Mapping : Si vous n'en mettez pas, et que vous avez une erreur sans, mettez le même chemin à droite qu'à gauche.
+
+> On va dans Préference > Language & Framework > PHP > Debug   
+
+![](/Assets/images/xdebug/xdebugServer.png)  
+
+> Tout devrait être bon, on va dans Run > Debug , on choisi notre PHP Web Page, et voilà !
+
+  
+
 
 
 
