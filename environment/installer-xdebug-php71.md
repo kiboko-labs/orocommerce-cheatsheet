@@ -84,7 +84,7 @@ xdebug.idekey = PHPSTORM
 
 ### Configurer PHPStorm
 
-![](Assets/images/xebugWebPage.png)
+![](/Assets/images/xebugWebPage.png)
 
 
  
