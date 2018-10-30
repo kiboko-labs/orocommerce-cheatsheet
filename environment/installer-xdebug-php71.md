@@ -7,7 +7,7 @@
 > Placez-vous dans un terminal
 
  
-> La méthode la plus propre est d'ajouter ce respository, Il va nous permettre d'avoir facilement accès à toute les extensions dont on a besoin
+> La méthode la plus propre est d'ajouter ce repository, Il va nous permettre d'avoir facilement accès à toutes les extensions dont on a besoin 
 ```bash
 brew tap kyslik/homebrew-php
 ```
@@ -34,7 +34,7 @@ brew install kyslik/php/php71-xdebug
 ```bash
 php -v
 ```
-> Vous devriez avoir Xdebug qui est apparut : 
+> Vous devriez avoir Xdebug qui est apparu : 
 
 ```bash
 PHP 7.1.14 (cli) (built: Feb  2 2018 08:42:59) ( NTS )
@@ -80,7 +80,7 @@ xdebug.idekey = PHPSTORM
 > xdebug.remote_host : Le serveur que vous voulez écouter    
 > xdebug.remote_port : Le port que va utiliser xdebug, vérifiez bien qu'il n'est pas utilisé    
 > xdebug.remote_log : On peut logger les erreurs, très pratique pour débugger, vous pouvez mettre le ficher que vous voulez.   
-> xdebug.idekey = PHPSTORM (optionnel avec notre méthode)
+
 
 ### Configurer PHPStorm
 > On va dans Préference > Language & Framework > PHP   
