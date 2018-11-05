@@ -37,7 +37,7 @@ app/console oro:entity-extend:update-schema
 ```bash
 echo -e "bin / app"
 read SF
-echo -e "Chemin relatif de l'entité a supprimé : "
+echo -e "Chemin relatif de l'entité à supprimer : "
 echo -e "Ex: Acme\Bundle\YourBundle\Entity\YourEntity"
 read CHEMIN
 echo -e "php "$SF"/console cache:clear -e dev"
