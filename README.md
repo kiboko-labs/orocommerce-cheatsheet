@@ -33,3 +33,4 @@ Docker tips
 ------------
 
 * [Utiliser le cache Docker](docker/use-cache.md)
+* [Nettoyer sa VM](docker/clean-vm.md)
