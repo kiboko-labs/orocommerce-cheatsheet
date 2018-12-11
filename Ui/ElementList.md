@@ -12,11 +12,8 @@ Others
 
 <details><summary>Details</summary>
 <p>
-
-#### yes, even hidden code blocks!
-
-```python
-print("Render attribute row
+```
+Render attribute row
            Parameters:
                title - attribute title
                value - attribute value
