@@ -40,5 +40,3 @@ public function up(Schema $schema, QueryBag $queries)
 ```
 The value of `'owner' => ExtendScope::OWNER_CUSTOM` tells the system to handle almost everything, so that you do not have to write a new form type for instance.
 The option `'view' => ['priority' => 199]` allows developers to force the ordering of the fields in the view. The higher the value, the higher in the view.
-
-> To figure this out after a few hours of investigation, I had to display the Entity Management form for the BusinessUnit entity. Then I looked at the field names and saw that it was something like : `oro_entity_config_type[view][priority]`. I assumed I could transpose that in the `oro_options` and it worked. The future will tell us if this can become a rule...
