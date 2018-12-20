@@ -148,7 +148,7 @@ Le provider va permettre d'avoir la main sur la réponse qui être renvoyée a l
     }
 
 ```
-On doit implementer FormTemplateDataProviderInterface, est on peut construire notre réponse dans la méthode getData()
+On doit implementer FormTemplateDataProviderInterface, et on peut construire notre réponse dans la méthode getData()
 
 ```php
 <?php
