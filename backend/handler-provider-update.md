@@ -53,7 +53,7 @@ A quoi ça ressemble :
 
 <?php
 
-namespace Acme\Bundle\TestBundle\Form\Handler;
+namespace Acme\Bundle\FooBundle\Form\Handler;
 
 use Doctrine\Common\Persistence\ObjectManager;
 
@@ -153,7 +153,7 @@ On doit implementer FormTemplateDataProviderInterface, est on peut construire no
 ```php
 <?php
 
-namespace Acme\Bundle\TestBundle\Provider;
+namespace Acme\Bundle\FooBundle\Provider;
 
 use Oro\Bundle\ProductBundle\Entity\Brand;
 use Oro\Bundle\FormBundle\Provider\FormTemplateDataProviderInterface;
