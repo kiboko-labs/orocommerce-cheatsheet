@@ -15,6 +15,7 @@ Backend tips
 * [Gérer dynamiquement des actions dans une datagrid](backend/dynamic-action-datagrid.md)
 * [Faire passer un paramètre à une datagrid](backend/pass-param-to-datagrid.md)
 * [Comment supprimer proprement une entité](backend/delete-entity.md)
+* [Comment utiliser les Handlers/Providers](backend/handler-provider-update.md)
 
 Environment tips
 ------------
