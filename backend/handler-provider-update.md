@@ -53,7 +53,7 @@ A quoi ça ressemble :
 
 <?php
 
-namespace Acme\Bundle\TestBundle\Form\Handler;
+namespace Acme\Bundle\FooBundle\Form\Handler;
 
 use Doctrine\Common\Persistence\ObjectManager;
 
@@ -148,12 +148,12 @@ Le provider va permettre d'avoir la main sur la réponse qui être renvoyée a l
     }
 
 ```
-On doit implementer FormTemplateDataProviderInterface, est on peut construire notre réponse dans la méthode getData()
+On doit implementer FormTemplateDataProviderInterface, et on peut construire notre réponse dans la méthode getData()
 
 ```php
 <?php
 
-namespace Acme\Bundle\TestBundle\Provider;
+namespace Acme\Bundle\FooBundle\Provider;
 
 use Oro\Bundle\ProductBundle\Entity\Brand;
 use Oro\Bundle\FormBundle\Provider\FormTemplateDataProviderInterface;
