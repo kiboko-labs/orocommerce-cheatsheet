@@ -35,6 +35,7 @@ Migration tips
 
 * [Introduction schema manipulation](migrations/introduction.md)
 * [Managing enums](migrations/enum.md)
+* [Extending an entity (Business Unit example)](https://github.com/kiboko-labs/orocommerce-cheatsheet/blob/master/migrations/businessUnit.md)
 
 Docker tips
 ------------
