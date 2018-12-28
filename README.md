@@ -20,6 +20,7 @@ Environment tips
 ------------
 
 * [Installer Xdebug pour php 7.1 sur MacOS](environment/installer-xdebug-php71.md)
+* [Installer RabbitMQ avec Brew sur MacOS](environment/installer-rabbitmq-brew.md)
 * [Utilisation de Supervisor](supervisor/supervisor.md)
 
 
