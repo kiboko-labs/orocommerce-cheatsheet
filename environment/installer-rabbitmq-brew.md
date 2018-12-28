@@ -36,7 +36,7 @@ rabbitmqctl start_app
 ```
 > On a besoin de ce plugin, qui n'est pas installé par défault :
 
-rabbitmq_del ayed_message _exchange
+rabbitmq_delayed_message _exchange
 
 > On le télecharge et on le met au bon endroit
 
