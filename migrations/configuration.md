@@ -87,7 +87,7 @@ The `set` method of `$this->configManager` allows to change the value of the spe
 The table below lists a few settings that may be changed with the configuration manager service:
 
 section|name|type|description
---|---|--
+---|---|---|---
 oro_checkout|guest_checkout|boolean|Enable/disable guest checkout
 oro_frontend|guest_access_enabled|boolean|Enable/disable guest access
 oro_frontend|frontend_theme|string|Set the theme for the frontend
