@@ -30,4 +30,7 @@ docker exec -ti le-container_mysql bash
 > On lance la commande avec l'option -v ( pour voir le dump avec du "verbose" ):
 
 
+```bash
 mysql -v —batch -h{host} -u{user} -p nom-de-la-base-de-donnée < /tmp/bdd.sql
+``````
+
