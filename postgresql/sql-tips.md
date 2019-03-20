@@ -1,8 +1,6 @@
 SQL tips Oro
 ========================
 
-## Postgres SQL
-
 Pour connaître les tables de plus de 100mb :
 
 ```
