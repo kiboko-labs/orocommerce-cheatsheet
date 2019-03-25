@@ -13,7 +13,4 @@ Pour libérer de l'espace sur VM, on peut lancer plusieurs commandes pour suppri
 
 * `docker volume prune`
 
-* `docker network prune`
-
-
 _Attention à ne pas supprimer tous ses containers_
