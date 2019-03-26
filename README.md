@@ -18,6 +18,13 @@ Backend tips
 * [Faire des handlers / providers (update entity)](backend/handler-provider-update.md)
 
 
+Frontend tips
+------------
+
+* [BlockTypes examples](frontend/BlockTypes.md)
+* [List of Ui element present in OroUIBundle::macros.html.twig](frontend/ElementList.md)
+
+
 Environment tips
 ------------
 
