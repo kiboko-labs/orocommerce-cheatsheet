@@ -73,6 +73,13 @@ bin/console oro:user:update nomUser --user-password=root
 bin/console oro:user:impersonate user 
 ```
 
+## ElasticSearch
+
+En cas d'erreur d'indexation :
+```bash
+bin/console oro:website-elasticsearch:create-website-indexes
+```
+
 ## Others
 
 **Translations**
