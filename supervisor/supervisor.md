@@ -40,6 +40,6 @@ Changer les repertoires et le User dans le fichier .conf
 
 Relancer tous les services
 
-* **** Lancer `supervisortctl restart all` 
+* Lancer `supervisortctl restart all` 
 
 
