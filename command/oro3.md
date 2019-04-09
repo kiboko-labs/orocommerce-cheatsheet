@@ -31,6 +31,23 @@ rm -rf var/cache/*
 ```
 
 
+## Indexation
+
+**Search**
+
+```bash
+bin/console oro:search:index
+bin/console oro:search:reindex
+```
+
+**Website**
+
+```bash
+bin/console oro:website-search:reindex
+bin/console oro:website-search:reindex --website-id=2
+```
+
+
 ## Assets
 **Install assets**
 
