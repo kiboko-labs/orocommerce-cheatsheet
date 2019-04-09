@@ -37,3 +37,9 @@ Changer les repertoires et le User dans le fichier .conf
 
 * **2** Lancer `supervisorctl update` pour qu'il recharge les conf.
 * **3** Lancer `supervisorctl status` pour voir ce qui tournent
+
+Relancer tous les services
+
+* **2** Lancer `supervisortctl restart all` 
+
+
