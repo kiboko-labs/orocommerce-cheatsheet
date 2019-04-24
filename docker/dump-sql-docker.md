@@ -34,3 +34,17 @@ docker exec -ti le-container_mysql bash
 mysql -v —batch -h{host} -u{user} -p nom-de-la-base-de-donnée < /tmp/bdd.sql
 ``````
 
+
+Short one :)
+
+## Backup
+```bash
+docker exec CONTAINER /usr/bin/mysqldump -u root --password=root DATABASE > backup.sql
+```
+
+## Restore
+```bash
+cat backup.sql | docker exec -i CONTAINER /usr/bin/mysql -u root --password=root DATABASE
+```
+
+
