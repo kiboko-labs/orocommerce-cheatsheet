@@ -47,6 +47,12 @@ bin/console oro:website-search:reindex
 bin/console oro:website-search:reindex --website-id=2
 ```
 
+## Update entities
+
+```bash
+bin/console oro:entity-extend:update-config 
+bin/console oro:entity-extend:update-schema
+```
 
 ## Assets
 **Install assets**
