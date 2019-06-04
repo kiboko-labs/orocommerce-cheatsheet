@@ -33,7 +33,7 @@ mysql -v —batch -h{host} -u{user} -p nom-de-la-base-de-donnée < /tmp/bdd.sql
 
 `postgresql` :
 ```bash
- psql -v -hlocalhost -Usevea -W -dsevea_oro_stag < /tmp/latest.sql
+ psql -v -h{host} -U{user} -W -dnom-de-la-base-de-donnée < /tmp/bdd.sql
  ``````
 
 Short one :)
