@@ -45,6 +45,8 @@ Migration tips
 * [Extending an entity (Business Unit example)](migrations/businessUnit.md)
 * [Managing the fields order on the form view](migrations/view.md)
 * [Configuring the platform via migrations](migrations/configuration.md)
+* [Delete completely an enum](migrations/delete-completely-an-enum.md)
+
 
 Docker tips
 ------------
