@@ -65,7 +65,7 @@ class RemoveEnumMigrations implements
      */
     public function cleanMarelloProductTable(Schema $schema)
     {
-
+        $table = $schema->getTable('marello_product_product');
         if ($table->hasColumn('fake_attribute_id')) {
             foreach ($this->getForeignKeys($table, ['fake_attribute_id']) as $foreignKey) {
                 $table->removeForeignKey($foreignKey->getName());
