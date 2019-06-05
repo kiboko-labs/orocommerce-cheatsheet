@@ -1,7 +1,7 @@
 ```php
 <?php
 
-namespace Test\Bundle\ProductBundle\Migrations\Schema\v1_8;
+namespace Test\Bundle\ProductBundle\Migrations\Schema\v1_1;
 
 use Doctrine\DBAL\Schema\ForeignKeyConstraint;
 use Doctrine\DBAL\Schema\Index;
