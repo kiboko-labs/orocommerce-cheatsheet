@@ -1,3 +1,4 @@
+```php
 <?php
 
 namespace Test\Bundle\ProductBundle\Migrations\Schema\v1_8;
@@ -126,3 +127,4 @@ class RemoveEnumMigrations implements
         });
     }
 }
+```
