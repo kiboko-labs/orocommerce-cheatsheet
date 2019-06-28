@@ -57,9 +57,17 @@ bin/console oro:entity-extend:update-schema
 ## Assets
 **Install assets**
 
+
+3.0 (with assetic)
 ```bash
 bin/console oro:asset:install && bin/console assetic:dump
 bin/console oro:assets:install -e dev && bin/console assetic:dump -e dev
+```
+
+3.1 (with webpack)
+```bash
+bin/console asset:install && bin/console oro:asset:build
+bin/console asset:install --env=dev && bin/console oro:asset:build --env=dev
 ```
 
 with symlink (without new file creation)
