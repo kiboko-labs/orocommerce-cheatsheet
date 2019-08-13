@@ -23,7 +23,7 @@ Frontend tips
 
 * [BlockTypes examples](frontend/BlockTypes.md)
 * [List of Ui element present in OroUIBundle::macros.html.twig](frontend/ElementList.md)
-
+* [Find Twig Template block names](frontend/findblockname.md)
 
 Environment tips
 ------------
