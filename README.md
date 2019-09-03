@@ -24,6 +24,7 @@ Frontend tips
 * [BlockTypes examples](frontend/BlockTypes.md)
 * [List of Ui element present in OroUIBundle::macros.html.twig](frontend/ElementList.md)
 * [Find Twig Template block names](frontend/findblockname.md)
+* [Ajouter une Mass-Action sur la grille des produits](frontend/mass-actions.md)
 
 Environment tips
 ------------
