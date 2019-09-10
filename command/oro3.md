@@ -93,7 +93,7 @@ bin/console oro:migration:data:load
 **Data migrations dump**
 
 ```bash
-bin/console oro:migration:data --dump
+bin/console oro:migration:dump
 ```
 more : https://github.com/oroinc/platform/tree/master/src/Oro/Bundle/MigrationBundle
 
