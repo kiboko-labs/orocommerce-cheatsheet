@@ -90,6 +90,13 @@ bin/console oro:migration:load
 bin/console oro:migration:data:load
 ```
 
+**Data migrations dump**
+
+```bash
+bin/console oro:migration:data --dump
+```
+more : https://github.com/oroinc/platform/tree/master/src/Oro/Bundle/MigrationBundle
+
 ## Users
 
 **Password changing**
