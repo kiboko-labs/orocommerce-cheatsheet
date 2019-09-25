@@ -1,6 +1,6 @@
 ### Scénario : 
 
-> Je veux avoir Xdebug activé que pour certaine commande
+> Je veux avoir Xdebug activé que pour certaine commandes
 
 ### Prérequis :
 
@@ -9,7 +9,7 @@
 
 ### Explication :
 
-> On vas faire en sorte d'avoir l'extension Xdebug activé à la demande
+> On va faire en sorte d'avoir l'extension Xdebug activée à la demande
 
 
 ### Solution
@@ -27,11 +27,11 @@
                   xdebug.remote_autostart=1
 ```
 
-- On duplique ce fichier dans le dossier en renommand la copie php.iniv2``
+- On duplique ce fichier dans le dossier en renommant la copie `php.iniv2`
 
 - Dans cette copie on décommente la ligne zend_extension en enlevant le point-virgule
 
-- on édite le fichier des alias dans mon cas : `nano ~/.bash_profile`
+- On édite le fichier des alias, dans mon cas : `nano ~/.bash_profile`
 
 - On ajoute un alias comme ceci : `alias phpx="php -c /usr/local/etc/php/7.2/php.iniv2"`
 
