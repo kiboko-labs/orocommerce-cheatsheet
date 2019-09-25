@@ -52,6 +52,6 @@
         with Zend OPcache v7.2.15, Copyright (c) 1999-2018, by Zend Technologies
 ```
 - Petit alias bien pratique pour les utilisateurs du framework Symfony/Oro ... : 
-`alias sfx="php -c /usr/local/etc/php/7.2/php.iniv2 -v bin/console"`
+`alias sfx="php -c /usr/local/etc/php/7.2/php.iniv2 bin/console"`
 
 
