@@ -50,8 +50,13 @@ bin/console oro:website-search:reindex --website-id=2
 ## Update entities
 
 ```bash
-bin/console oro:entity-extend:update-config 
-bin/console oro:entity-extend:update-schema
+bin/console oro:entity-extend:cache:check                     Makes sure that extended entity configs are ready to be processed by other commands. This is an internal command. Please do not run it manually.
+bin/console oro:entity-extend:cache:clear                     Clears extended entity cache.
+bin/console oro:entity-extend:cache:warmup                    Warms up extended entity cache.
+bin/console oro:entity-extend:migration:update-config         Updates extended entities configuration during a database structure migration process. This is an internal command. Please do not run it manually.
+bin/console oro:entity-extend:update-config                   Prepare entity config
+bin/console oro:entity-extend:update-schema                   Synchronize extended and custom entities metadata with a database schema
+
 ```
 
 ## Assets
