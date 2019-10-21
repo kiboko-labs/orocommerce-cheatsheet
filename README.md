@@ -35,6 +35,8 @@ Environment tips
 
 * [Utilisation de Supervisor](supervisor/supervisor.md)
 
+* [Utilisation de Composer](environment/composer-tips.md)
+
 * [Insert product medias in the database](postgresql/insert-medias.md)
 * [Pour identifier les tables lourdes](postgresql/sql-tips.md)
 
