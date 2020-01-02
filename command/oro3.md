@@ -141,10 +141,19 @@ Load with parameters :
 bin/console oro:translation:load --languages=en --languages=fr --rebuild-cache
 ```
 
-**Gerate JS routing (Api/Components)**
+**Generate JS routing (Api/Components)**
 
 ```bash
 bin/console fos:js-routing:dump --target web/js/routes.js 
+```
+
+**Worflows**
+```
+bin/console oro:workflow:definitions:load
+```
+
+```
+bin/console oro:workflow:translations:dump
 ```
 
 ## And more
