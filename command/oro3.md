@@ -147,13 +147,10 @@ bin/console oro:translation:load --languages=en --languages=fr --rebuild-cache
 bin/console fos:js-routing:dump --target web/js/routes.js 
 ```
 
-**Worflows**
+**Worflows & Processes**
 ```
 bin/console oro:workflow:definitions:load
-```
-
-```
-bin/console oro:workflow:translations:dump
+bin/console oro:process:configuration:load
 ```
 
 ## And more
