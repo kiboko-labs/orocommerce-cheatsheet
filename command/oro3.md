@@ -141,6 +141,8 @@ Load with parameters :
 bin/console oro:translation:load --languages=en --languages=fr --rebuild-cache
 ```
 
+Détails : https://github.com/oroinc/platform/blob/master/src/Oro/Bundle/TranslationBundle/Resources/doc/reference/commands.md
+
 **Generate JS routing (Api/Components)**
 
 ```bash
