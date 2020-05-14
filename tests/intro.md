@@ -10,5 +10,5 @@ tout le monde appelé Gherkin pour décrire les tests.
 
 
 
-Le projet original est sous license CC-BY-NC-SA 4.0
+Le projet original est sous license [CC-BY-NC-SA 4.0](https://github.com/oroinc/documentation/blob/master/LICENSE)
 La documentation original est publié ici :  [Doc original](https://www.oroinc.com/doc/orocommerce)
