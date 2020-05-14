@@ -9,7 +9,6 @@ tout le monde appelé Gherkin pour décrire les tests.
 [Tests fonctionnels](functional.md)
 
 
-[Doc original](https://doc.oroinc.com/backend/automated-tests/#test-environment)
 
 Le projet original est sous license CC-BY-NC-SA 4.0
-Documentation is published at https://www.oroinc.com/doc/orocommerce
+La documentation original est publié ici :  [Doc original](https://www.oroinc.com/doc/orocommerce)
