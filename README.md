@@ -58,3 +58,7 @@ Docker tips
 * [Maninipuler des dumps.sql avec Docker](docker/dump-sql-docker.md)
 * [Utiliser le cache Docker](docker/use-cache.md)
 * [Nettoyer sa VM](docker/clean-vm.md)
+
+Test tips
+-----------
+* [Intro](tests/intro.md)
