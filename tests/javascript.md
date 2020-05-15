@@ -52,8 +52,9 @@ Le plugin [Karma](https://plugins.jetbrains.com/plugin/7287-karma) aide à exéc
 
 Voir la [documentation de Jasmine 3.5](https://jasmine.github.io/api/3.5/global) pour de plus amples renseignements sur la rédaction de tests avec Jasmine 3.5.
 
-L’exemple ci-dessous illustre les spécifications du module oroui/js/mediator :`
+L’exemple ci-dessous illustre les spécifications du module oroui/js/mediator :
 
+````javascript
 import mediator from 'oroui/js/mediator';
 import Backbone from 'backbone';
 
@@ -63,11 +64,15 @@ describe('oroui/js/mediator', function () {
         expect(mediator).not.toBe(Backbone.Events);
     });
 });
-karma-jsmodule-exposure
-This approach allows to test the public API of a module. But what about
+````
 
-Use the karma-jsmodule-exposure plugin on a fly injects exposing code inside the js-module and provides API to manipulate internal variables:
+## karma-jsmodule-exposure
 
+Cette approche permet de tester l’API publique d’un module.
+Mais vous pouvez utilisez le plugin karma-jsmodule-exposure pour injecter du code exposant à l’intérieur
+du js-module et fournit l’API pour manipuler les variables internes :
+
+````javascript
  import someModule from 'some/module';
  import jsmoduleExposure from 'jsmodule-exposure';
 
@@ -96,14 +101,19 @@ Use the karma-jsmodule-exposure plugin on a fly injects exposing code inside the
          expect(foo.do).toHaveBeenCalled();
      });
  });
-Jasmine-jQuery
-Jasmine-jQuery extends the base Jasmine functionality, specifically it:
+````
 
-adds a number of useful matchers, and allows to check the state of a jQuery instance easily
-applies HTML-fixtures before each test and rolls back the document after tests
-provides a way to load HTML and JSON fixtures required for a test
-However, because Jasmine-jQuery requires the full path to a fixture resource, it is better to use import to load the fixtures by a related path.
+## Jasmine-jQuery
 
+[Jasmine-jQuery](https://github.com/velesin/jasmine-jquery) étend la fonctionnalité de base de Jasmine, en particulier :
+
+- ajoute un certain nombre de matchers utiles, et permet de vérifier l’état d’une instance jQuery facilement
+- applique des fixtures HTML avant chaque test et retourne le document après les tests
+- fournit un moyen de charger les fixtures HTML et JSON nécessaires pour un test
+
+Cependant, parce que Jasmine-jQuery nécessite le chemin complet vers une ressource fixture, il est préférable d’utiliser import pour charger les fixtures par un chemin connexe.
+
+````javascript
    import 'jasmine-jquery';
    import $ from 'jquery';
    import html from 'text-loader!./Fixture/markup.html';
@@ -119,3 +129,4 @@ However, because Jasmine-jQuery requires the full path to a fixture resource, it
            expect($('li')).toHaveLength(5);
        });
    });
+````
