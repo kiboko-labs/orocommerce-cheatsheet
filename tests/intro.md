@@ -6,9 +6,9 @@ lieu  de compter sur le code source se comporte comme un utilisateur réel. Il p
 exécuter des tests dans un véritable navigateur Web, et utilise un langage spécifique et lisible par
 tout le monde appelé Gherkin pour décrire les tests.
 
-[Tests fonctionnels](functional.md)
-[Tests Behat](behat.md)
-[Tests Javascript](javascript.md)
+- [Tests fonctionnels](functional.md)
+- [Tests Behat](behat.md)
+- [Tests Javascript](javascript.md)
 
 Le projet original est sous license [CC-BY-NC-SA 4.0](https://github.com/oroinc/documentation/blob/master/LICENSE)
 La documentation original est publié ici :  [Doc original](https://www.oroinc.com/doc/orocommerce)
