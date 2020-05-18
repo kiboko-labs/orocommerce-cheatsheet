@@ -793,7 +793,7 @@ Suggestion automatique dans PhpStorm
 
 Lors de la conception d'un scénario dans le fichier de fonctionnalités, PhpStorm vous propose des conseils sur les étapes implémentées qui correspondent aux mots clés. Par exemple, lorsque vous tapez grid ou form, les étapes qui impliquent ces éléments apparaissent dans le bloc de suggestions.
 
-[create_report.feature](https://doc.oroinc.com/master/_images/phpstorm_step_suggestion.png)
+[Step Suggestion](images/phpstorm_step_suggestion.png)
 
 Si PhpStorm ne vous propose aucun conseil lors de la frappe, veuillez vérifier les points suivants:
 
@@ -804,9 +804,9 @@ Trouvez le contexte nécessaire
 
 Chaque classe Context doit implémenter l'interface `Behat\Behat\Context\Context`. Obtenez la liste des contextes implémentés et trouvez celui nécessaire par nom.
 
-[Get Context by name](https://doc.oroinc.com/master/_images/context_implements_interface.png)
+[Get Context by name](images/context_implements_interface.png)
 
-[Get Context by file](https://doc.oroinc.com/master/_images/find_context.png)
+[Get Context by file](images/find_context.png)
 
 Habituellement, le nom du contexte est explicite, par exemple, GridContext, FormContext, ACLContext, etc.
 
@@ -818,10 +818,10 @@ Tapez la commande suivante dans votre console:
 
 `bin/behat -dl -s AcmeDemoBundle | grep "flash message"`
 
-[Grep console](https://doc.oroinc.com/master/_images/grep_flash_messages.png)
+[Grep console](images/grep_flash_messages.png)
 
 `bin/behat -dl -s AcmeDemoBundle | grep "grid"`
 
-[Grep console 2](https://doc.oroinc.com/master/_images/grep_grid.png)
+[Grep console 2](images/grep_grid.png)
 
 PS :  Vous ne pouvez utiliser l'interface de ligne de commande behat qu'après avoir installé l'application.
