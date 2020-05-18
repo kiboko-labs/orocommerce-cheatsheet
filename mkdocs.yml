@@ -5,7 +5,7 @@ site_description: Documentation française pour OroCommerce
 site_author: Kiboko
 remote_branch: gh-pages
 dev_addr: 'localhost:8010'
-theme: readthedocs
+theme: material
 nav:
     - Useful commands:
           - Oro 1.x: command/oro1.md
