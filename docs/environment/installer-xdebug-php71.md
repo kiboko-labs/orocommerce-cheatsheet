@@ -85,21 +85,21 @@ xdebug.idekey = PHPSTORM
 ### Configurer PHPStorm
 > On va dans Préference > Language & Framework > PHP   
 
-![](/Assets/images/xdebug/xdebugPhpPreference.png)   
+![](/docs/Assets/images/xdebug/xdebugPhpPreference.png)   
 
 > Dans Cli Interpreter, on choisi notre php 7.1, et on clique sur les "..."  
 
-![](/Assets/images/xdebug/xdebugPhpSettings.png)      
+![](/docs/Assets/images/xdebug/xdebugPhpSettings.png)      
 
 > On oublie pas de mettre le chemin de l'extension (La valeur de zend_extension)
 
 > On va dans Run > Edit Configuration > Le bouton + > PHP Web PAGE     
  
-![](/Assets/images/xdebug/xebugWebPage.png)   
+![](/docs/Assets/images/xdebug/xebugWebPage.png)   
 
 >On créer le serveur   
 
-![](/Assets/images/xdebug/xdebugServer.png)  
+![](/docs/Assets/images/xdebug/xdebugServer.png)  
     
 > Host : Vous mettez l'IP que vous utilisez avec le app/console server:start   
 > Port : Pareil   
@@ -108,7 +108,7 @@ xdebug.idekey = PHPSTORM
 
 > On va dans Préference > Language & Framework > PHP > Debug   
 
-![](/Assets/images/xdebug/xdebugServer.png)  
+![](/docs/Assets/images/xdebug/xdebugServer.png)  
 
 > Tout devrait être bon, on va dans Run > Debug , on choisi notre PHP Web Page, et voilà !
 
