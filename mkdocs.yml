@@ -22,7 +22,7 @@ nav:
           - Champ select en config: backend/oro-config-select-type.md
     - Frontend tips:
           - BlockTypes examples: frontend/BlockTypes.md
-          - List of Ui element present in OroUIBundle::macros.html.twig : backend/ElementList.md
+          - List of Ui element present in OroUIBundle::macros.html.twig : frontend/ElementList.md
           - Find Twig Template block names: frontend/findblockname.md
           - Ajouter une Mass-Action sur la grille des produits: frontend/mass-actions.md
           - Create a frontend form for an entity: frontend/form.md
@@ -31,7 +31,7 @@ nav:
           - Installer Xdebug pour php 7.1 sur MacOS: environment/installer-xdebug-php71.md
           - Installer RabbitMQ avec Brew sur MacOS: environment/installer-rabbitmq-brew.md
           - Activer XDebug à la demande: environment/avoir-xdebug-a-la-demande.md
-          - Utilisation de Supervisor: environment/supervisor
+          - Utilisation de Supervisor: environment/supervisor.md
           - Utilisation de composer: environment/composer-tips.md
           - Insert product medias in the database: postgresql/insert-medias.md
           - Pour identifier les tables lourdes: postgresql/sql-tips.md

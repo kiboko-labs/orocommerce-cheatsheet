@@ -11,7 +11,6 @@ Backend tips
 ------------
 
 * [Remove Price filter and sorter](backend/remove-price-filter.md)
-* [Comment créer un EventListener pour modifier une DataGrid](backend/event-listener-datagrid.md)
 * [Gérer dynamiquement des actions dans une datagrid](backend/dynamic-action-datagrid.md)
 * [Faire passer un paramètre à une datagrid](backend/pass-param-to-datagrid.md)
 * [Comment supprimer proprement une entité](backend/delete-entity.md)
@@ -34,7 +33,7 @@ Environment tips
 * [Installer RabbitMQ avec Brew sur MacOS](environment/installer-rabbitmq-brew.md)
 * [Activer XDebug à la demande](environment/avoir-xdebug-a-la-demande.md)
 
-* [Utilisation de Supervisor](supervisor/supervisor.md)
+* [Utilisation de Supervisor](environment/supervisor.md)
 
 * [Utilisation de Composer](environment/composer-tips.md)
 
