@@ -27,7 +27,7 @@ différents emulateurs de navigateur et leurs drivers.
 
 6. [MinkSelenium2Driver](https://github.com/minkphp/MinkSelenium2Driver) vas faire le lien entre Mink vers Selenium en utilisant le protocole WebDriver
 
-7. [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/) est un outil pour automatiser les tests dans Goodle Chrome
+7. [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/) est un outil pour automatiser les tests dans Google Chrome
 
 
 ## Conventions
