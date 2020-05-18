@@ -818,7 +818,7 @@ Tapez la commande suivante dans votre console:
 
 `bin/behat -dl -s AcmeDemoBundle | grep "flash message"`
 
-[Grep console](images/grep_flash_messages.png)
+![Grep console](images/grep_flash_messages.png)
 
 `bin/behat -dl -s AcmeDemoBundle | grep "grid"`
 
