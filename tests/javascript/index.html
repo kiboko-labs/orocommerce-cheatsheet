@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Kiboko">
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Javascript - orocommerce-cheatsheet</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Javascript";
+    var mkdocs_page_input_path = "tests/javascript.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> orocommerce-cheatsheet</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">Useful commands</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../command/oro1/">Oro 1.x</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../command/oro3/">Oro 3.x</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Backend tips</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../backend/remove-price-filter/">Remove Price filter and sorter</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Comment créer un EventListener pour modifier une DataGrid</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../backend/event-listener-datagrid-structure/">Orm Result</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../backend/event-listener-datagrid-structure/">Structure</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../backend/dynamic-action-datagrid/">Gérer dynamiquement des actions dans une datagrid</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../backend/pass-param-to-datagrid/">Faire passer un paramètre à une datagrid</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../backend/delete-entity/">Comment supprimer proprement une entité</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../backend/handler-provider-update/">Faire des handlers / providers (update entity)</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../backend/oro-config-select-type/">Champ select en config</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Frontend tips</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../frontend/BlockTypes/">BlockTypes examples</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../../backend/ElementList.md">List of Ui element present in OroUIBundle::macros.html.twig</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../frontend/findblockname/">Find Twig Template block names</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../frontend/mass-actions/">Ajouter une Mass-Action sur la grille des produits</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../frontend/form/">Create a frontend form for an entity</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../frontend/consent-rgpd/">RGPD</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Environment tips</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../environment/installer-xdebug-php71/">Installer Xdebug pour php 7.1 sur MacOS</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../environment/installer-rabbitmq-brew/">Installer RabbitMQ avec Brew sur MacOS</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../environment/avoir-xdebug-a-la-demande/">Activer XDebug à la demande</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../../environment/supervisor">Utilisation de Supervisor</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../environment/composer-tips/">Utilisation de composer</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../postgresql/insert-medias/">Insert product medias in the database</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../postgresql/sql-tips/">Pour identifier les tables lourdes</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Migration tips</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../migrations/introduction/">Introduction schema manipulation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../migrations/enum/">Managing enums</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../migrations/businessUnit/">Extending an entity (Business Unit example)</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../migrations/view/">Managing the fields order on the form view</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../migrations/configuration/">Configuring the platform via migrations</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../migrations/delete-completely-an-enum/">Delete completely an enum</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Docker tips</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../docker/dump-sql-docker/">Maninipuler des dumps.sql avec Docker</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../docker/use-cache/">Utiliser le cache Docker</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../docker/clean-vm/">Nettoyer sa VM</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Test tips</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../intro/">Intro</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../behat/">Behat</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Javascript</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#note">NOTE</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#note_1">Note</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#lancement">Lancement</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#redaction">Rédaction</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#note_2">NOTE</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#karma-jsmodule-exposure">karma-jsmodule-exposure</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#jasmine-jquery">Jasmine-jQuery</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../functional/">Functionnal</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">orocommerce-cheatsheet</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Test tips &raquo;</li>
+        
+      
+    
+    <li>Javascript</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/kiboko-labs/orocommerce-cheatsheet/edit/master/docs/tests/javascript.md"
+          class="icon icon-github"> Edit on Github</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="test-unitaire-javascript">Test unitaire Javascript</h1>
+<h2 id="installation">Installation</h2>
+<p>Les logiciel suivant sont nécessaire pour exécuter les tests JS :</p>
+<ul>
+<li>Node.js (Moteur JavaScript)</li>
+<li>Karma (Lanceur de test Javascript)</li>
+<li>Jasmine 3.5 (Framework BDD)</li>
+</ul>
+<h3 id="note">NOTE</h3>
+<p>Pour obtenir des instructions sur la façon d’installer Node.js, accédez au <a href="https://nodejs.org/en/download/">site officiel</a>.</p>
+<p>Une fois Node installé, installez plusieurs modules en utilisant <a href="https://npmjs.org/">Node Packaged Modules</a> en exécutant la commande suivante à partir du dossier racine de votre application</p>
+<p><code>npm install --prefix=vendor/oro/platform/build</code></p>
+<p>Où le paramètre –prefix spécifie le chemin relatif au répertoire platform/build.</p>
+<h2 id="configuration">Configuration</h2>
+<p>La configuration pour lancer les tests et dans build/karma.config.js.dist.</p>
+<h3 id="note_1">Note</h3>
+<p>Voir plus d’informations dans la <a href="http://karma-runner.github.io/4.0/config/configuration-file.html">documentation officielle de Karma</a>.</p>
+<p>Il peut être utile de créer une configuration séparé en copiant ./vendor/oro/platform/build/karma.config.js.dist vers ./vendor/oro/platform/build/karma.config.js et le modifier.</p>
+<h2 id="lancement">Lancement</h2>
+<p>Pour exécuter des tests, appelez la commande suivante :</p>
+<p><code>./vendor/oro/platform/build/node_modules/.bin/karma start ./vendor/oro/platform/build/karma.conf.js.dist --single-run</code></p>
+<p>N’oubliez pas de changer le chemin vers le répertoire de plateform/build, s’il est différent dans votre application.
+`
+Pour exécuter une testsuite avec une configuration personnalisée, vous pouvez utiliser les paramètres de ligne de commande qui écrasent les paramètres dans le fichier de configuration.</p>
+<p>Quelques options personnalisées ont été ajoutées pour préparer la configuration de Karma :</p>
+<p>–mask <em>string</em> file masque pour les fichiers Spec.Par défault c'est <code>vendor/oro/**/Tests/JS/**/*Spec.js</code> qui correspond à tous les fichiers Spec du projet dans le répertoire vendor oro.
+–spec <em>string</em> chemin vers un fichier de Spec spécifique, s’il est passé, alors la recherche par masque est ignorée et le test est exécuté fichier Spec unique.
+–skip-indexing <em>boolean</em> permet de sauter la phase de la collecte des fichiers de spécifications et de réutiliser la collection des des lancements précédent.
+–theme <em>string</em> le nom du thème est utilisé pour générer la configuration de webpack pour certains thèmes. Par défaut, c’est `admin.oro.</p>
+<p>Les extensions suivantes peuvent être utiles si vous utilisez Phpstorm:</p>
+<p>Le plugin <a href="https://plugins.jetbrains.com/plugin/7287-karma">Karma</a> aide à exécuter des testsuite à partir de l’IDE et voir les résultats facilement.
+<a href="https://plugins.jetbrains.com/plugin/7233-ddescriber-for-jasmine">ddescriber</a> pour jasmin aide à désactiver ou à sauter certains tests de la testsuite rapidement</p>
+<h2 id="redaction">Rédaction</h2>
+<h3 id="note_2">NOTE</h3>
+<p>Voir la <a href="https://jasmine.github.io/api/3.5/global">documentation de Jasmine 3.5</a> pour de plus amples renseignements sur la rédaction de tests avec Jasmine 3.5.</p>
+<p>L’exemple ci-dessous illustre les spécifications du module oroui/js/mediator :</p>
+<pre><code class="javascript">import mediator from 'oroui/js/mediator';
+import Backbone from 'backbone';
+
+describe('oroui/js/mediator', function () {
+    it(&quot;compare mediator to Backbone.Events&quot;, function() {
+        expect(mediator).toEqual(Backbone.Events);
+        expect(mediator).not.toBe(Backbone.Events);
+    });
+});
+</code></pre>
+
+<h2 id="karma-jsmodule-exposure">karma-jsmodule-exposure</h2>
+<p>Cette approche permet de tester l’API publique d’un module.
+Mais vous pouvez utilisez le plugin karma-jsmodule-exposure pour injecter du code exposant à l’intérieur
+du js-module et fournit l’API pour manipuler les variables internes :</p>
+<pre><code class="javascript"> import someModule from 'some/module';
+ import jsmoduleExposure from 'jsmodule-exposure';
+
+ // get exposure instance for tested module
+ var exposure = jsmoduleExposure.disclose('some/module');
+
+ describe('some/module', function () {
+     var foo;
+
+     beforeEach(function () {
+         // create mock object with stub method 'do'
+         foo = jasmine.createSpyObj('foo', ['do']);
+         // before each test, pass it off instead of original
+         exposure.substitute('foo').by(foo);
+     });
+
+     afterEach(function () {
+         // after each test restore original value of foo
+         exposure.recover('foo');
+     });
+
+     it('check doSomething() method', function() {
+         someModule.doSomething();
+
+         // stub method of mock object has been called
+         expect(foo.do).toHaveBeenCalled();
+     });
+ });
+</code></pre>
+
+<h2 id="jasmine-jquery">Jasmine-jQuery</h2>
+<p><a href="https://github.com/velesin/jasmine-jquery">Jasmine-jQuery</a> étend la fonctionnalité de base de Jasmine, en particulier :</p>
+<ul>
+<li>ajoute un certain nombre de matchers utiles, et permet de vérifier l’état d’une instance jQuery facilement</li>
+<li>applique des fixtures HTML avant chaque test et retourne le document après les tests</li>
+<li>fournit un moyen de charger les fixtures HTML et JSON nécessaires pour un test</li>
+</ul>
+<p>Cependant, parce que Jasmine-jQuery nécessite le chemin complet vers une ressource fixture, il est préférable d’utiliser import pour charger les fixtures par un chemin connexe.</p>
+<pre><code class="javascript">   import 'jasmine-jquery';
+   import $ from 'jquery';
+   import html from 'text-loader!./Fixture/markup.html';
+
+   describe('some/module', function () {
+       beforeEach(function () {
+           // appends loaded html to document's body,
+           // after test rolls back it automatically
+           window.setFixtures(html);
+       });
+
+       it('checks the markup of a page', function () {
+           expect($('li')).toHaveLength(5);
+       });
+   });
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../functional/" class="btn btn-neutral float-right" title="Functionnal">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../behat/" class="btn btn-neutral" title="Behat"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../behat/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../functional/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

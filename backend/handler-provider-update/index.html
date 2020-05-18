@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Kiboko">
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Faire des handlers / providers (update entity) - orocommerce-cheatsheet</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Faire des handlers / providers (update entity)";
+    var mkdocs_page_input_path = "backend/handler-provider-update.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> orocommerce-cheatsheet</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">Useful commands</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../command/oro1/">Oro 1.x</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../command/oro3/">Oro 3.x</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Backend tips</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../remove-price-filter/">Remove Price filter and sorter</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Comment créer un EventListener pour modifier une DataGrid</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../event-listener-datagrid-structure/">Orm Result</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../event-listener-datagrid-structure/">Structure</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../dynamic-action-datagrid/">Gérer dynamiquement des actions dans une datagrid</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../pass-param-to-datagrid/">Faire passer un paramètre à une datagrid</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../delete-entity/">Comment supprimer proprement une entité</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Faire des handlers / providers (update entity)</a>
+    <ul class="current">
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../oro-config-select-type/">Champ select en config</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Frontend tips</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../frontend/BlockTypes/">BlockTypes examples</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../ElementList.md">List of Ui element present in OroUIBundle::macros.html.twig</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../frontend/findblockname/">Find Twig Template block names</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../frontend/mass-actions/">Ajouter une Mass-Action sur la grille des produits</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../frontend/form/">Create a frontend form for an entity</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../frontend/consent-rgpd/">RGPD</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Environment tips</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../environment/installer-xdebug-php71/">Installer Xdebug pour php 7.1 sur MacOS</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../environment/installer-rabbitmq-brew/">Installer RabbitMQ avec Brew sur MacOS</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../environment/avoir-xdebug-a-la-demande/">Activer XDebug à la demande</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../../environment/supervisor">Utilisation de Supervisor</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../environment/composer-tips/">Utilisation de composer</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../postgresql/insert-medias/">Insert product medias in the database</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../postgresql/sql-tips/">Pour identifier les tables lourdes</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Migration tips</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../migrations/introduction/">Introduction schema manipulation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../migrations/enum/">Managing enums</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../migrations/businessUnit/">Extending an entity (Business Unit example)</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../migrations/view/">Managing the fields order on the form view</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../migrations/configuration/">Configuring the platform via migrations</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../migrations/delete-completely-an-enum/">Delete completely an enum</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Docker tips</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../docker/dump-sql-docker/">Maninipuler des dumps.sql avec Docker</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../docker/use-cache/">Utiliser le cache Docker</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../docker/clean-vm/">Nettoyer sa VM</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Test tips</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tests/intro/">Intro</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tests/behat/">Behat</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tests/javascript/">Javascript</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tests/functional/">Functionnal</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">orocommerce-cheatsheet</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Backend tips &raquo;</li>
+        
+      
+    
+    <li>Faire des handlers / providers (update entity)</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/kiboko-labs/orocommerce-cheatsheet/edit/master/docs/backend/handler-provider-update.md"
+          class="icon icon-github"> Edit on Github</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h3 id="scenario">Scénario :</h3>
+<blockquote>
+<p>J'ai des besoins complexes de persitances d'entitées et de réponses à renvoyer à la vue que le  UpdateHandlerFacade ne peut satisfaire</p>
+</blockquote>
+<h3 id="le-cas-simple">Le cas simple</h3>
+<p>Ceci est l'update de Oro/Bundle/ProductBundle/Controller/BrandController.
+Il fonctionne assez simplement :  On passe au update_handler 
+- L'entité ($brand)
+- Le form
+- L'objet request
+- Une chaîne de caractère traduite à afficher quand la sauvegarde est faite.</p>
+<pre><code class="php">    protected function update(Brand $brand, Request $request)
+    {
+        return $this-&gt;get('oro_form.update_handler')-&gt;update(
+            $brand,  
+            $this-&gt;createForm(BrandType::NAME, $brand),   
+            $this-&gt;get('translator')-&gt;trans('oro.product.brand.form.update.messages.saved'), 
+            $request,
+            null
+        );
+    }
+</code></pre>
+
+<p>L'UpdateHandlerFacade s'occupe d'enregistrer la donnée et de construire une réponse qui est renvoyée a la vue.</p>
+<h3 id="le-cas-plus-complique">Le cas plus compliqué</h3>
+<p>En utilisant la méthode précedente, on n'a ni la main sur la manière dont Oro persiste notre entitée, ni sur la réponse qu'il va construire et renvoyer à la vue.</p>
+<h3 id="le-handler">Le Handler</h3>
+<ul>
+<li>Le handler permet de délèguer tout le traitement d'un formulaire.</li>
+</ul>
+<p>L'utilisation d'un handler à nous :</p>
+<pre><code class="php">    protected function update(Brand $brand, Request $request)
+    {
+        return $this-&gt;updateHandler-&gt;update(
+            $brand,  
+            $this-&gt;createForm(BrandType::NAME, $brand),   
+            $this-&gt;translator-&gt;trans('oro.product.brand.form.update.messages.saved'), 
+            $request,
+            new BrandHandler($this-&gt;form, $request, $this-&gt;entityManager), // Il est là
+        );
+    }
+</code></pre>
+
+<p>A quoi ça ressemble : </p>
+<pre><code class="php">
+&lt;?php
+
+namespace Acme\Bundle\FooBundle\Form\Handler;
+
+use Doctrine\Common\Persistence\ObjectManager;
+
+use Oro\Bundle\FormBundle\Form\Handler\FormHandlerInterface;
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\HttpFoundation\Request;
+
+use Oro\Bundle\ProductBundle\Entity\Brand;
+
+class BrandHandler implements FormHandlerInterface
+{
+    /**
+     * @var FormInterface
+     */
+    protected $form;
+
+    /**
+     * @var Request
+     */
+    protected $request;
+
+    /**
+     * @var ObjectManager
+     */
+    protected $manager;
+
+    /**
+     * @param FormInterface $form
+     * @param Request       $request
+     * @param ObjectManager $manager
+     */
+    public function __construct(FormInterface $form, Request $request, ObjectManager $manager)
+    {
+        $this-&gt;form    = $form;
+        $this-&gt;request = $request;
+        $this-&gt;manager = $manager;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function process($data, FormInterface $form, Request $request)
+    {
+        if (!$data instanceof Brand) {
+            throw new \InvalidArgumentException(&quot;Si data n'est pas une instance de brand on sort&quot;);
+        }
+        $form-&gt;setData($data);  // On set les données dans le formulaire
+
+        if (in_array($request-&gt;getMethod(), ['POST', 'PUT'])) {
+            $form-&gt;submit($request);  // On submit le formulaire
+
+            if ($form-&gt;isValid()) {
+                $this-&gt;onSuccess($data);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * &quot;Success&quot; form handler
+     *
+     * @param Brand $brand
+     */
+    protected function onSuccess(Brand $brand)
+    {
+        $this-&gt;manager-&gt;persist($brand);
+        $this-&gt;manager-&gt;flush();
+    }
+}
+</code></pre>
+
+<ul>
+<li>Concrètement tel qu'il est notre handler ne sert a rien.</li>
+<li>Il fait exactement ce que fait la première portion de code. </li>
+<li>Mais il nous perment d'avoir la main sur la manière dont est persistée notre entité brand.</li>
+</ul>
+<h3 id="le-provider">Le Provider</h3>
+<p>Le provider va permettre d'avoir la main sur la réponse qui être renvoyée a la vue.</p>
+<pre><code class="php">    protected function update(Brand $brand, Request $request)
+    {
+        return $this-&gt;updateHandler-&gt;update(
+            $brand,  
+            $this-&gt;form,   
+            $this-&gt;translator-&gt;trans('oro.product.brand.form.update.messages.saved'), 
+            $request,
+            new BrandHandler($this-&gt;form, $request, $this-&gt;entityManager), 
+            new BrandProvider($brand, $this-&gt;form, $request) // Il est là
+        );
+    }
+
+</code></pre>
+
+<p>On doit implementer FormTemplateDataProviderInterface, et on peut construire notre réponse dans la méthode getData()</p>
+<pre><code class="php">&lt;?php
+
+namespace Acme\Bundle\FooBundle\Provider;
+
+use Oro\Bundle\ProductBundle\Entity\Brand;
+use Oro\Bundle\FormBundle\Provider\FormTemplateDataProviderInterface;
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\HttpFoundation\Request;
+
+class BrandProvider implements FormTemplateDataProviderInterface
+{
+
+    /**
+    * @var Brand $entity
+    */
+    private $entity;
+
+    /**
+    * @var FormInterface $form
+    */
+    private $channelRuleGroupType;
+
+    /**
+    * @var Request $form
+    */
+    private $request;
+
+
+
+    /**
+     *
+     * @param Brand         $entity
+     * @param FormInterface  $channelRuleGroupType
+     * @param Request        $request
+     */
+    public function __construct(Brand $entity, FormInterface $channelRuleGroupType, Request $request)
+    {
+        $this-&gt;entity = $entity;
+        $this-&gt;channelRuleGroupType = $channelRuleGroupType;
+        $this-&gt;request = $request;
+    }
+
+
+    public function getData($entity, FormInterface $form, Request $request)
+    {
+        return [
+            'custom' =&gt; 'Je suis un truc dont la vue a besoin',
+        ];
+    }
+}
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../oro-config-select-type/" class="btn btn-neutral float-right" title="Champ select en config">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../delete-entity/" class="btn btn-neutral" title="Comment supprimer proprement une entité"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../delete-entity/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../oro-config-select-type/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
