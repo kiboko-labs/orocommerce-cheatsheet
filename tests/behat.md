@@ -334,7 +334,7 @@ ou :
 1. `Login` est un nom d'élément qui DOIT être unique. L'élément peut être créé dans un contexte par OroElementFactory par son nom:
 
 ````php
-$this->elementFactory->createElement('Login')
+$this->elementFactory->createElement('Login');
 ````
 
 2. selector` définit comment le driver Web doit trouver l'élément sur la page. Par défaut, lorsque le type de sélecteur n'est pas spécifié, le sélecteur css est utilisé.
@@ -445,9 +445,7 @@ Exemple de Configuration de Page :
 ```
 Exemple de classe de page:
 
-````php
- <?php
-
+```php
  namespace Oro\Bundle\UserBundle\Tests\Behat\Page;
 
  use Oro\Bundle\TestFrameworkBundle\Behat\Element\Page;
@@ -465,7 +463,7 @@ Exemple de classe de page:
          $userMenu->clickLink('My User');
      }
  }
-````
+```
 Vous pouvez maintenant utiliser plusieurs étapes significatives:
 
 ````yaml
@@ -491,7 +489,7 @@ et utilise [faker](https://github.com/fzaninotto/faker) pour remplir les champs 
 
 Vous utilisez à la fois les références faker et les [ références d'entité](https://doc.oroinc.com/master/backend/automated-tests/behat/#behat-entity-references) dans les appareils en ligne.
 
-````yaml
+````
  Given the following contacts:
    | First Name | Last Name | Email     |
    | Joan       | Anderson  | <email()> |
@@ -606,7 +604,7 @@ Cucumber ne fait pas de différence entre les mots clés, mais le choix du bon e
 Jetez un œil à la feature login `login.feature` dans [OroUserBundle](https://github.com/oroinc/platform/blob/50047c1d8abc5f811d0db759b501b8d27b0bff65/src/Oro/Bundle/UserBundle/Tests/Behat/Features/login.feature)
 
 
-````yaml
+````
 Feature: User login
    In order to login in application
    As an OroCRM admin
