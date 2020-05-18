@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Kiboko">
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Champ select en config - orocommerce-cheatsheet</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Champ select en config";
+    var mkdocs_page_input_path = "backend/oro-config-select-type.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> orocommerce-cheatsheet</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">Useful commands</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../command/oro1/">Oro 1.x</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../command/oro3/">Oro 3.x</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Backend tips</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../remove-price-filter/">Remove Price filter and sorter</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Comment créer un EventListener pour modifier une DataGrid</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../event-listener-datagrid-structure/">Orm Result</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../event-listener-datagrid-structure/">Structure</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../dynamic-action-datagrid/">Gérer dynamiquement des actions dans une datagrid</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../pass-param-to-datagrid/">Faire passer un paramètre à une datagrid</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../delete-entity/">Comment supprimer proprement une entité</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../handler-provider-update/">Faire des handlers / providers (update entity)</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Champ select en config</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#explication">Explication</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#solution">Solution</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Frontend tips</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../frontend/BlockTypes/">BlockTypes examples</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../ElementList.md">List of Ui element present in OroUIBundle::macros.html.twig</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../frontend/findblockname/">Find Twig Template block names</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../frontend/mass-actions/">Ajouter une Mass-Action sur la grille des produits</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../frontend/form/">Create a frontend form for an entity</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../frontend/consent-rgpd/">RGPD</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Environment tips</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../environment/installer-xdebug-php71/">Installer Xdebug pour php 7.1 sur MacOS</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../environment/installer-rabbitmq-brew/">Installer RabbitMQ avec Brew sur MacOS</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../environment/avoir-xdebug-a-la-demande/">Activer XDebug à la demande</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../../environment/supervisor">Utilisation de Supervisor</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../environment/composer-tips/">Utilisation de composer</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../postgresql/insert-medias/">Insert product medias in the database</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../postgresql/sql-tips/">Pour identifier les tables lourdes</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Migration tips</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../migrations/introduction/">Introduction schema manipulation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../migrations/enum/">Managing enums</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../migrations/businessUnit/">Extending an entity (Business Unit example)</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../migrations/view/">Managing the fields order on the form view</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../migrations/configuration/">Configuring the platform via migrations</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../migrations/delete-completely-an-enum/">Delete completely an enum</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Docker tips</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../docker/dump-sql-docker/">Maninipuler des dumps.sql avec Docker</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../docker/use-cache/">Utiliser le cache Docker</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../docker/clean-vm/">Nettoyer sa VM</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Test tips</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tests/intro/">Intro</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tests/behat/">Behat</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tests/javascript/">Javascript</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tests/functional/">Functionnal</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">orocommerce-cheatsheet</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Backend tips &raquo;</li>
+        
+      
+    
+    <li>Champ select en config</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/kiboko-labs/orocommerce-cheatsheet/edit/master/docs/backend/oro-config-select-type.md"
+          class="icon icon-github"> Edit on Github</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="utiliser-un-select-type-dans-la-config-oro">Utiliser un select type dans la config Oro!</h1>
+<p>Pour utiliser un champ select héritant de OroEntitySelectOrCreateInlineType, on ne peux simplement utiliser des transformers pour convertir un objet en Id pour que l'on puisse enregistrer un id au lieu d'un objet en base.(Sinon vous allez avoir des surprises en prod :) )</p>
+<h2 id="explication">Explication</h2>
+<p>Le champ Select vas utiliser la <em>ModelData</em> du formulaire pour la transmettre a l'autocomplete qui utilise un objet. ( <code>Oro/Bundle/ConfigBundle/Form/Handler/ConfigHandler.php</code> pour plus de précisions).
+<strong>OroEntitySelectOrCreateInlineType</strong> utilise lui  meme un <strong>EntityToIdTransformer</strong> pour transformer la donnée. Donc il ne faut pas rajouter d'autre DataTransformer sinon vous aurez des erreurs.
+Il faut donc transformer la donnée autre part, mais ou ?</p>
+<h2 id="solution">Solution</h2>
+<p>Tout d'abord créer un formulaire comme ceci :</p>
+<pre><code>&lt;?php  
+namespace SliderBundle\Form\Type;  
+
+use Doctrine\Common\Persistence\ObjectRepository;  
+use Oro\Bundle\FormBundle\Form\Type\OroEntitySelectOrCreateInlineType;  
+use SliderBundle\Form\DataTransformer\SliderModelTransformer;  
+use SliderBundle\Form\DataTransformer\SliderViewTransformer;  
+use Symfony\Component\Form\AbstractType;  
+use Symfony\Component\Form\FormBuilderInterface;  
+use Symfony\Component\OptionsResolver\OptionsResolver;  
+
+class SliderSelectType extends AbstractType  
+{  
+  const NAME = 'kiboko_slider_select';  
+
+  /**  
+ * {@inheritdoc}  
+ */  public function configureOptions(OptionsResolver $resolver)  
+ {  $resolver-&gt;setDefaults(  
+ [  'autocomplete_alias' =&gt; 'kiboko_slider',  
+  'create_form_route' =&gt; 'kiboko_slider_create',  
+  'grid_name' =&gt; 'kiboko-slider-grid',  
+  'configs' =&gt; [  
+  'placeholder' =&gt; 'kiboko.slider.form.choose',  
+  ]  
+ ] );  
+  }  
+
+  /**  
+ * {@inheritdoc}  
+ */  public function getParent()  
+ {  return OroEntitySelectOrCreateInlineType::class;  
+  }  
+
+  /**  
+ * {@inheritdoc}  
+ */  public function getName()  
+ {  return $this-&gt;getBlockPrefix();  
+  }  
+
+  /**  
+ * {@inheritdoc}  
+ */  public function getBlockPrefix()  
+ {  return self::NAME;  
+  }  
+}
+</code></pre>
+
+<p>Assurez vous bien d'avoir un search handler:</p>
+<p>services.yml :
+```kiboko.form.autocomplete.slider.search_handler:<br />
+    public: false<br />
+    parent: oro_form.autocomplete.search_handler<br />
+    arguments:<br />
+        - '%kiboko.entity.slider.class%'<br />
+  - ["name"]<br />
+    tags:<br />
+        - { name: oro_form.autocomplete.search_handler, alias: kiboko_slider }</p>
+<pre><code>search.yml :
+</code></pre>
+
+<p>search:<br />
+    SliderBundle\Entity\Slider:<br />
+        alias:                          kiboko_slider<br />
+        title_fields:                   [name]<br />
+        route:<br />
+            name:                       kiboko_slider_view<br />
+            parameters:<br />
+                id:                     id<br />
+        search_template:                SliderBundle:Search:result.html.twig<br />
+        fields:<br />
+            -<br />
+                name:                   name<br />
+                target_type:            text<br />
+                target_fields:          [name]</p>
+<pre><code>
+Dans votre fichier de Configuration dans DependencyInjection votre config doit être de type **string**    pour stocker l'id de l'entité.
+
+    'slider' =&gt; ['type' =&gt; 'string', 'value' =&gt; null],
+
+et dans votre fichier system_configuration.yml
+
+</code></pre>
+
+<p>slider_bundle.slider:<br />
+    data_type: string<br />
+    type: SliderBundle\Form\Type\SliderSelectType<br />
+    options:<br />
+        label: kiboko.slider.system_configuration.fields.slider.label<br />
+        tooltip: kiboko.slider.system_configuration.fields.slider.label.tooltip<br />
+        required: true<br />
+        configs:<br />
+            placeholder: 'kiboko.slider.form.choose_slider'<br />
+  result_template_twig: 'SliderBundle:Slider:Autocomplete/result.html.twig'<br />
+  selection_template_twig: 'SliderBundle:Slider:Autocomplete/selection.html.twig'<br />
+  constraints:<br />
+            -   NotBlank: ~</p>
+<pre><code>
+A vous de personnalisez vos templates twig a votre sauce :)
+
+Bon, jusqu'ici nous avons notre champ select mais ils nous faut la logique de transformation :
+
+Pour cela  créer une classe SystemConfigListener dans un dossier EventListener, comme ceci :
+</code></pre>
+
+<?php
+
+<p>namespace SliderBundle\EventListener;  </p>
+<p>use Doctrine\Common\Persistence\ManagerRegistry;<br />
+use Oro\Bundle\ConfigBundle\Config\ConfigManager;<br />
+use Oro\Bundle\ConfigBundle\Event\ConfigSettingsUpdateEvent;<br />
+use SliderBundle\DependencyInjection\SliderExtension;  </p>
+<p>class SystemConfigListener<br />
+{<br />
+  const SETTING = 'slider';  </p>
+<p>/*<em><br />
+ * @var ManagerRegistry<br />
+</em>/  protected $registry;  </p>
+<p>/*<em><br />
+ * @var string<br />
+</em>/  protected $sliderClass;  </p>
+<p>/*<em><br />
+ * @param ManagerRegistry $registry<br />
+  * @param string $userClass<br />
+</em>/<br />
+  public function __construct(ManagerRegistry $registry, $userClass)<br />
+ {  $this-&gt;registry = $registry;<br />
+  $this-&gt;sliderClass = $userClass;<br />
+  }  </p>
+<p>/<strong><br />
+ * @param ConfigSettingsUpdateEvent $event<br />
+  */<br />
+  public function onFormPreSetData(ConfigSettingsUpdateEvent $event)<br />
+ {  $settingsKey = implode(ConfigManager::SECTION_VIEW_SEPARATOR, [SliderExtension::ALIAS, self::SETTING]);<br />
+  $settings = $event-&gt;getSettings();<br />
+ if (is_array($settings)<br />
+ &amp;&amp; !empty($settings[$settingsKey]['value'])<br />
+ ) {  $settings[$settingsKey]['value'] = $this-&gt;registry<br />
+  -&gt;getManagerForClass($this-&gt;sliderClass)<br />
+ -&gt;find($this-&gt;sliderClass, $settings[$settingsKey]['value']);<br />
+  $event-&gt;setSettings($settings);<br />
+  }<br />
+ }<br />
+  /</strong><br />
+ * @param ConfigSettingsUpdateEvent $event<br />
+  */<br />
+  public function onSettingsSaveBefore(ConfigSettingsUpdateEvent $event)<br />
+ {  $settings = $event-&gt;getSettings();  </p>
+<p>if (!array_key_exists('value', $settings)) {<br />
+  return;<br />
+  }  </p>
+<p>if (!is_a($settings['value'], $this-&gt;sliderClass)) {<br />
+  return;<br />
+  }  </p>
+<p>/*<em> @var object $owner </em>/<br />
+  $slider = $settings['value'];<br />
+  $settings['value'] = $slider-&gt;getId();<br />
+  $event-&gt;setSettings($settings);<br />
+  }<br />
+}</p>
+<pre><code>
+Le but de cette classe et de récupérer l'entité en fonction de son id lors du chargement de la page et de transformer cet objet en id lors d'un submit.
+et du coup pour ça il faut déclarer le service comme ceci 
+````
+kiboko.slider.event_listener.system_config:  
+    class: SliderBundle\EventListener\SystemConfigListener  
+    arguments:  
+        - &quot;@doctrine&quot;  
+        - '%kiboko.entity.slider.class%'  
+  tags:  
+        - { name: kernel.event_listener, event: oro_config.settings_form_preset, method: onFormPreSetData }  
+        - { name: kernel.event_listener, event: oro_config.settings_before_save.slider_bundle.slider, method: onSettingsSaveBefore }
+````
+
+Sachant que  **slider_bundle** c'est votre alias de votre extension et **slider** votre config spécifique :
+</code></pre>
+
+<p>class SliderExtension extends Extension<br />
+{<br />
+  const ALIAS = 'slider_bundle';</p>
+<p>```</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../frontend/BlockTypes/" class="btn btn-neutral float-right" title="BlockTypes examples">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../handler-provider-update/" class="btn btn-neutral" title="Faire des handlers / providers (update entity)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../handler-provider-update/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../frontend/BlockTypes/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

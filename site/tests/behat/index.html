@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Kiboko">
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Behat - orocommerce-cheatsheet</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Behat";
+    var mkdocs_page_input_path = "tests/behat.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> orocommerce-cheatsheet</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">Useful commands</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../command/oro1/">Oro 1.x</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../command/oro3/">Oro 3.x</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Backend tips</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../backend/remove-price-filter/">Remove Price filter and sorter</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Comment créer un EventListener pour modifier une DataGrid</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../backend/event-listener-datagrid-structure/">Orm Result</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../backend/event-listener-datagrid-structure/">Structure</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../backend/dynamic-action-datagrid/">Gérer dynamiquement des actions dans une datagrid</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../backend/pass-param-to-datagrid/">Faire passer un paramètre à une datagrid</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../backend/delete-entity/">Comment supprimer proprement une entité</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../backend/handler-provider-update/">Faire des handlers / providers (update entity)</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../backend/oro-config-select-type/">Champ select en config</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Frontend tips</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../frontend/BlockTypes/">BlockTypes examples</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../../backend/ElementList.md">List of Ui element present in OroUIBundle::macros.html.twig</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../frontend/findblockname/">Find Twig Template block names</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../frontend/mass-actions/">Ajouter une Mass-Action sur la grille des produits</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../frontend/form/">Create a frontend form for an entity</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../frontend/consent-rgpd/">RGPD</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Environment tips</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../environment/installer-xdebug-php71/">Installer Xdebug pour php 7.1 sur MacOS</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../environment/installer-rabbitmq-brew/">Installer RabbitMQ avec Brew sur MacOS</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../environment/avoir-xdebug-a-la-demande/">Activer XDebug à la demande</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="../../environment/supervisor">Utilisation de Supervisor</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../environment/composer-tips/">Utilisation de composer</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../postgresql/insert-medias/">Insert product medias in the database</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../postgresql/sql-tips/">Pour identifier les tables lourdes</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Migration tips</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../migrations/introduction/">Introduction schema manipulation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../migrations/enum/">Managing enums</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../migrations/businessUnit/">Extending an entity (Business Unit example)</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../migrations/view/">Managing the fields order on the form view</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../migrations/configuration/">Configuring the platform via migrations</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../migrations/delete-completely-an-enum/">Delete completely an enum</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Docker tips</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../docker/dump-sql-docker/">Maninipuler des dumps.sql avec Docker</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../docker/use-cache/">Utiliser le cache Docker</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../docker/clean-vm/">Nettoyer sa VM</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Test tips</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../intro/">Intro</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Behat</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#concepts">Concepts</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#conventions">Conventions</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#example">Example</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#installation-des-dependances-de-developpement">Installation des dépendances de développement :</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#etat-de-lapplication-initiale">Etat de l'application initiale</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#install-test-automation-tools">Install Test Automation Tools</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#note">Note :</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#execution-des-tests">Exécution des tests</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#architecture">Architecture</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#container">Container</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#autoload-suites">Autoload Suites</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#feature-isolation">Feature Isolation</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#desactiver-lisolation-des-fonctionnalites">Désactiver l'isolation des fonctionnalités</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#objet-de-page-page-object">Objet de page (Page Object)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#elements">Elements</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#mappage-des-champs-de-formulaire">Mappage des champs de formulaire</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#mappages-de-formulaires-integres">Mappages de formulaires intégrés :</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#element-de-page">ELement de page</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#fixtures">Fixtures :</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#feature-fixtures">Feature Fixtures :</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fixtures-basiques">Fixtures basiques</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fixtures-alice">Fixtures Alice</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#note_1">NOTE :</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#references-dentites">Références d'entités</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#health-checkers">Health Checkers</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#fixtureschecker">FixturesChecker</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ecrire-une-feature">Ecrire une feature</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#note_2">Note :</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#note_3">Note :</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#depannage">Dépannage</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#augmentez-les-performances-des-applications-ubuntu">Augmentez les performances des applications (Ubuntu)</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#facultatif-creer-un-script-de-demarrage">(facultatif) Créer un script de démarrage</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../javascript/">Javascript</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../functional/">Functionnal</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">orocommerce-cheatsheet</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Test tips &raquo;</li>
+        
+      
+    
+    <li>Behat</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/kiboko-labs/orocommerce-cheatsheet/edit/master/docs/tests/behat.md"
+          class="icon icon-github"> Edit on Github</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="test-behat">Test Behat</h1>
+<h2 id="concepts">Concepts</h2>
+<p>Les informations ci-dessous résume les concepts et les outils qui sont importants pour la compréhension et l’utilisation
+du framework de test inclus dans OroBehatExtension.</p>
+<p><strong>Behavior-driven development (BDD)</strong> est un processus de développement logiciel issu du développement axé sur les tests (TDD).
+Le BDD combine les techniques générales et les principes de TDD avec des idées de conception axée sur le domaine et
+l'analyse d'objet et du design pour fournir aux équipes de développement et de gestion de logiciels des outils partagés et 
+un processus partagé de collaboration pour le développement de logiciels.</p>
+<ol>
+<li>
+<p><a href="https://docs.behat.org/en/v3.0/">Behat</a> est un framework de développement basé sur le comportement pour PHP.
+Cet outil permet de décrire le comportement de l'application voulue en utilisant Php et <a href="https://docs.behat.org/en/latest/user_guide/gherkin.html">Gherking</a>
+Vous pouvez utiliser Behat pour décrire tout ce que vous pouvez décrire dans la logique métier.
+Outils, applications GUI, applications Web, etc. La partie la plus intéressante est les applications Web.</p>
+</li>
+<li>
+<p><a href="http://mink.behat.org/en/latest/">Mink</a> est une extension de Behat qui vas permettre de controller un navigateur durant les tests en utilisant PHP.
+Il vas utiliser des emulateurs de navigateurs , l'avantage d'utiliser Mink c'est qu'il supprime les différences entres les 
+différents emulateurs de navigateur et leurs drivers.</p>
+</li>
+<li>
+<p><a href="https://github.com/oroinc/platform/blob/master/src/Oro/Bundle/TestFrameworkBundle/Behat/Element/OroElementFactory.php">OroElementFactory</a> est une classe qui permet de manipuler des éléments sur la page.</p>
+</li>
+<li>
+<p><a href="https://github.com/Behat/Symfony2Extension/blob/master/doc/index.rst">Symfony2Extension</a> qui ajoute une intégration pour Symfony avec Behat.</p>
+</li>
+<li>
+<p><a href="https://github.com/oroinc/platform/blob/master/src/Oro/Bundle/TestFrameworkBundle/Behat/ServiceContainer/OroTestFrameworkExtension.php">OroTestFrameworkExtension</a> vas permettre de charger différents outils pour la liaison Oro/Behat</p>
+</li>
+<li>
+<p><a href="https://github.com/minkphp/MinkSelenium2Driver">MinkSelenium2Driver</a> vas faire le lien entre Mink vers Selenium en utilisant le protocole WebDriver</p>
+</li>
+<li>
+<p><a href="https://sites.google.com/a/chromium.org/chromedriver/">ChromeDriver</a> est un outil pour automatiser les tests dans Goodle Chrome</p>
+</li>
+</ol>
+<h2 id="conventions">Conventions</h2>
+<p>Cette section résume les limitations et accords importants pour la maintenance et l'utilisation des tests partagés.</p>
+<p>Utilisez le mapping de formulaire au lieu de sélecteurs dans vos scénarios pour les garder clairs et compréhensibles pour les personnes du monde technique et non technique.</p>
+<h3 id="example">Example</h3>
+<p>Ne pas:</p>
+<pre><code>I fill in &quot;oro_workflow_definition_form[label]&quot; with &quot;User Workflow Test&quot;
+I fill in &quot;oro_workflow_definition_form[related_entity]&quot; with &quot;User&quot;
+</code></pre>
+
+<p>Mais plutot :</p>
+<pre><code> And I fill &quot;Workflow Edit Form&quot; with:
+   | Name                  | User Workflow Test |
+   | Related Entity        | User               |
+</code></pre>
+
+<p>avec la description des éléments indépendament :</p>
+<pre><code> Workflow Edit Form:
+   selector: 'form[name=&quot;oro_workflow_definition_form&quot;]'
+   class: Oro\Bundle\TestFrameworkBundle\Behat\Element\Form
+   options:
+     mapping:
+       Name: 'oro_workflow_definition_form[label]'
+       Related Entity: 'oro_workflow_definition_form[related_entity]'
+</code></pre>
+
+<p>Utilisez des menu et des liens pour obtenir les bonnes pages au lieu de l'URL de la page directe</p>
+<p>Faire :</p>
+<pre><code>And I open User Index page
+</code></pre>
+
+<p>Et non pas :</p>
+<pre><code>And I go to &quot;/users&quot;
+</code></pre>
+
+<p>Évitez la redondance des scénarios (par exemple, en répétant la même séquence d'étapes, comme la connexion, dans plusieurs scénarios).</p>
+<p>Couvrez la fonctionnalité avec les scénarios séquentiels où chaque scénario suivant réutilise les résultats (les états et les données) préparés par leurs prédécesseurs. Cette méthode a été choisie en raison des avantages suivants:</p>
+<ul>
+<li>Exécution de scénario plus rapide grâce à la session utilisateur partagée et à la préparation intelligente des données.
+L'action de connexion dans le scénario initial ouvre la session qui est réutilisable par les scénarios suivants.
+Les scénarios préliminaires (par exemple, créer) préparent des données pour les scénarios suivants (par exemple, supprimer).</li>
+<li>L'isolation au niveau des fonctionnalités augmente la vitesse d'exécution, en particulier dans les environnements de test lents.</li>
+<li>Actions de développement de routine minimisées (par exemple, vous n'avez pas à charger les fixtures pour chaque scénario; au lieu de cela, vous réutilisez les résultats disponibles des scénarios précédents).</li>
+<li>Gestion aisée des états d'application difficiles à émuler uniquement avec des fixtures (par exemple, lors de l'ajout de nouveaux champs d'entité dans l'interface utilisateur).</li>
+</ul>
+<p>En couplant les scénarios, la facilité de débogage et de localisation des bogues est réduite. Il est difficile de déboguer les fonctionnalités de l'interface utilisateur
+et les scénarios qui se produisent après plusieurs scénarios préliminaires. Plus la ligne est longue, plus il est difficile d'isoler le problème.</p>
+<ul>
+<li><strong>Utiliser des fixtures yml sémantiques</strong></li>
+</ul>
+<p>Utilisez uniquement les entités qui se trouvent dans le bundle que vous testez. Toutes les autres entités doivent être incluses via une importation. Voir les <a href="https://github.com/nelmio/alice">Fixtures Alince</a> pour plus d'informations.</p>
+<ul>
+<li><strong>Nommer les éléments dans le style camelCase sans espaces</strong></li>
+</ul>
+<p>Vous pouvez toujours vous y référer en utilisant le style camelCase avec des espaces dans les scénarios behat.
+Par exemple, un élément nommé OroProductForm peut être mentionné dans l'étape du scénario comme «Oro Product From»:</p>
+<ul>
+<li><strong>Use Scenario: Feature Background instead of the Background step</strong></li>
+</ul>
+<h2 id="introduction">Introduction</h2>
+<h3 id="configuration">Configuration</h3>
+<p><strong>Configuration de l'application</strong> :</p>
+<p>Utilisez la configuration par défaut de l'application installée en mode production. Si aucun serveur de messagerie n'est configuré localement, définissez le paramètre mailer_transport dans parameters.yml sur null.</p>
+<p><strong>Configuration Behat</strong></p>
+<p>La configuration de base se trouve dans behat.yml.dist. Chaque application possède son propre fichier behat.yml.dist à la racine du répertoire de l'application.
+Créez votre behat.yml (il est ignoré par git automatiquement et n'est jamais validé dans le référentiel distant), importez la configuration de base et modifiez-la pour l'adapter à votre environnement:</p>
+<pre><code class="yaml">imports:
+   - ./behat.yml.dist
+
+ default: &amp;default
+     extensions: &amp;default_extensions
+         Behat\MinkExtension:
+             browser_name: chrome
+             base_url: &quot;http://your-domain.local&quot;
+</code></pre>
+
+<h2 id="installation">Installation</h2>
+<h3 id="installation-des-dependances-de-developpement">Installation des dépendances de développement :</h3>
+<p>Si vous avez installé des dépendances avec le paramètre --no-dev plus tôt, supprimez le fichier composer.lock de la racine du répertoire de l'application.</p>
+<p>Installez les dépendances dev à l'aide de la commande suivante</p>
+<p><code>composer install</code></p>
+<h3 id="etat-de-lapplication-initiale">Etat de l'application initiale</h3>
+<p>Dans Oro, l'état initial est celui lorsque l'application est installé sans données de démonstration.
+Les scénarios qui testent des fonctionnalités doivent s'appuyer sur cet état et doivent créer toutes les données nécessaires à des vérifications supplémentaires.
+Les données peuvent être créées par les étapes du scénario ou comme montages.</p>
+<p>Installez l'application sans données de démonstration en mode production à l'aide de la commande suivante:</p>
+<pre><code> bin/console oro:install  --drop-database --user-name=admin --user-email=admin@example.com  \
+   --application-url=http://dev-crm.local --user-firstname=John --user-lastname=Doe \
+   --user-password=admin  --organization-name=ORO --env=prod --sample-data=n --timeout=3000
+</code></pre>
+
+<h3 id="install-test-automation-tools">Install Test Automation Tools</h3>
+<p>Pour exécuter des scénarios qui utilisent les fonctionnalités de l'application Oro, exécutez le navigateur WebKit (à l'aide de ChromeDriver). Pour installer ChromeDriver, exécutez les commandes suivantes:</p>
+<pre><code> CHROME_DRIVER_VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)
+ mkdir -p &quot;$HOME/chrome&quot; || true
+ wget &quot;http://chromedriver.storage.googleapis.com/${CHROME_DRIVER_VERSION}/chromedriver_linux64.zip&quot; -O &quot;$HOME/chrome/chromedriver_linux64_${CHROME_DRIVER_VERSION}.zip&quot;
+ unzip &quot;$HOME/chrome/chromedriver_linux64_${CHROME_DRIVER_VERSION}.zip&quot; -d &quot;$HOME/chrome&quot;
+ sudo ln -s &quot;$HOME/chrome/chromedriver&quot; /usr/local/bin/chromedriver
+</code></pre>
+
+<h3 id="note">Note :</h3>
+<p>Ces commandes créent un sous-répertoire pour Chrome dans votre répertoire personnel, télécharge ChromeDriver dans le répertoire créer,décompresse les fichiers et créér un lien symbolique.</p>
+<p>Une fois l'exécution de la commande terminée, vous pouvez utiliser <code>chromedriver dans le terminal.</code></p>
+<h3 id="execution-des-tests">Exécution des tests</h3>
+<p>Conditions préalables</p>
+<p>Exécutez ChromeDriver:</p>
+<p><code>chromedriver --url-base=wd/hub --port=4444 &gt; /tmp/driver.log 2&gt;&amp;1</code></p>
+<p>Pour exécuter ChromeDriver en arrière-plan, ajoutez le symbole esperluette (&amp;) à la fin de la ligne, comme dans les exemples suivants:</p>
+<p><code>chromedriver --url-base=wd/hub --port=4444 &gt; /tmp/driver.log 2&gt;&amp;1 &amp;</code></p>
+<p>Avant de commencer, il est fortement recommandé de vous familiariser avec les arguments et les options de Behat. Exécutez bin / behat --help pour une description détaillée.</p>
+<p>Lorsque l'application Oro est installée sans données de démonstration et est en cours d'exécution, et que ChromeDriver est en cours d'exécution, vous pouvez commencer à exécuter les tests behat par fonctionnalité à partir de la racine de l'application.</p>
+<p>Vous pouvez utiliser l'une des commandes suivantes.</p>
+<p>Exécutez le scénario de test des fonctionnalités:</p>
+<p><code>bin/behat vendor/oro/platform/src/Oro/Bundle/UserBundle/Tests/Behat/Features/login.feature -vvv</code></p>
+<p>Aperçu de toutes les étapes de fonctionnalité disponibles:</p>
+<p><code>bin/behat -dl -s OroUserBundle</code></p>
+<p>Voir les étapes avec une description complète et des exemples:</p>
+<p><code>bin/behat -di -s OroUserBundle</code></p>
+<p>Chaque bundle a sa suite de tests dédiée qui peut être exécutée séparément:</p>
+<p><code>bin/behat -s OroUserBundle</code></p>
+<h2 id="architecture">Architecture</h2>
+<h2 id="container">Container</h2>
+<p>Behat est une application console Symfony avec son propre conteneur et ses propres services.
+Un conteneur Behat peut être configuré via des extensions en utilisant behat.yml à la racine du répertoire d'application.</p>
+<p>Le conteneur d'application peut être utilisé par le noyau injecté dans votre contexte après avoir implémenté KernelAwareContext et utilisé le trait KernelDictionary.</p>
+<pre><code class="php"> use Behat\Symfony2Extension\Context\KernelAwareContext;
+ use Behat\Symfony2Extension\Context\KernelDictionary;
+ use Oro\Bundle\TestFrameworkBundle\Behat\Context\OroFeatureContext;
+
+ class FeatureContext extends OroFeatureContext implements KernelAwareContext
+ {
+     use KernelDictionary;
+
+     public function useContainer()
+     {
+         $doctrine = $this-&gt;getContainer()-&gt;get('doctrine');
+     }
+ }
+</code></pre>
+
+<p>De plus, vous pouvez injecter des services dans le contexte behat:</p>
+<pre><code class="yaml"> oro_behat_extension:
+   suites:
+     OroCustomerAccountBridgeBundle:
+       contexts:
+         - OroImportExportBundle::ImportExportContext:
+             - '@oro_entity.entity_alias_resolver'
+             - '@oro_importexport.processor.registry'
+</code></pre>
+
+<h2 id="autoload-suites">Autoload Suites</h2>
+<p>La classe <a href="https://github.com/oroinc/platform/blob/master/src/Oro/Bundle/TestFrameworkBundle/Behat/ServiceContainer/OroTestFrameworkExtension.php">OroTestFrameworkExtension</a>
+est responsable de la génération des suites de test.</p>
+<p>Lors de l'initialisation, l'extension crée une suite de tests avec un nom de bundle si un répertoire Tests/Behat/Features
+existe dans un bundle. Ainsi, si le bundle n'a pas de répertoire Features - aucune suite de tests ne sera créée ce bundle.</p>
+<p>Si vous avez besoin de certaines étapes de fonctionnalité spécifiques pour votre bundle, créez la classe AcmeDemoBundle\Tests\Behat\Context\FeatureContext.
+Ce contexte est ajouté à la suite avec les contextes courants.La liste complète du contexte commun est configurée dans le fichier de configuration behat sous la clé <code>shared_contexts</code>.</p>
+<p>Vous pouvez configurer manuellement la suite de tests pour un bundle dans la configuration de l'application behat:</p>
+<pre><code class="yaml"> default: &amp;default
+   suites:
+     AcmeDemoBundle:
+       type: symfony_bundle
+       bundle: AcmeDemoBundle
+       contexts:
+         - Oro\Bundle\TestFrameworkBundle\Tests\Behat\Context\OroMainContext
+         - OroDataGridBundle::GridContext
+         - AcmeDemoBundle::FeatureContext
+       paths:
+         - 'vendor/Acme/DemoBundle/Tests/Behat/Features'
+</code></pre>
+
+<p>ou dans une configuration de bundle behat {BundleName}/Tests/Behat/behat.yml :</p>
+<pre><code class="yaml"> oro_behat_extension:
+   suites:
+     AcmeDemoBundle:
+       contexts:
+         - Oro\Bundle\TestFrameworkBundle\Tests\Behat\Context\OroMainContext
+         - OroDataGridBundle::GridContext
+         - AcmeDemoBundle::FeatureContext
+       paths:
+         - '@AcmeDemoBundle/Tests/Behat/Features'
+</code></pre>
+
+<p>Les suites de test configurées manuellement ne sont pas chargées automatiquement par l'extension.</p>
+<h3 id="feature-isolation">Feature Isolation</h3>
+<p>Chaque fonctionnalité peut interagir avec l'application et effectuer des opérations CRUD. Par conséquent, la base de données peut être modifiée.
+Pour éviter les collisions de données, les fonctionnalités sont isolées: la base de données et les répertoires de cache sont vidés avant d'exécuter les tests de fonctionnalités;
+ils sont restaurés une fois l'exécution des tests de fonctionnalités terminée.</p>
+<p>Chaque isolateur doit implémenter l'interface Oro\Bundle\TestFrameworkBund et le tag oro_behat.isolator avec de la priorité.</p>
+<h4 id="desactiver-lisolation-des-fonctionnalites">Désactiver l'isolation des fonctionnalités</h4>
+<p>Vous pouvez désactiver l'isolation des fonctionnalités en ajoutant l'option <code>-skip-isolators=database,cache</code> à la commande console behat.
+Dans ce cas, la combinaison des tests de fonctionnalité peut s'exécuter beaucoup plus rapidement, mais la logique de test doit se soucier de la cohérence de la base de données et du cache.</p>
+<h2 id="objet-de-page-page-object">Objet de page (Page Object)</h2>
+<h3 id="elements">Elements</h3>
+<p>Elements est une couche de service dans les tests behat. Ils enveloppent la logique métier complexe. Prenez une minute pour lire la base des <a href="https://github.com/minkphp/Mink/blob/9ea1cebe3dc529ba3861d87c818f045362c40484/src/Element/NodeElement.php">NodeElement Mink</a></p>
+<p>Il y a de nombreuses méthodes publiques; certains d'entre eux ne s'appliquent qu'à certains éléments. Chaque test Bundle peut contenir un nombre particulier d'éléments.
+Tous les éléments doivent être décrits dans {BundleName} {BundleName}/Tests/Behat/behat.yml de la manière suivante:</p>
+<pre><code class="yaml"> oro_behat_extension:
+   elements:
+     Login:
+       selector: '#login-form'
+       class: Oro\Bundle\TestFrameworkBundle\Behat\Element\Form
+       options:
+         mapping:
+           Username: '_username'
+           Password: '_password'
+</code></pre>
+
+<p>ou :</p>
+<ol>
+<li><code>Login</code> est un nom d'élément qui DOIT être unique. L'élément peut être créé dans un contexte par OroElementFactory par son nom:</li>
+</ol>
+<pre><code class="php">$this-&gt;elementFactory-&gt;createElement('Login');
+</code></pre>
+
+<ol>
+<li>selector` définit comment le driver Web doit trouver l'élément sur la page. Par défaut, lorsque le type de sélecteur n'est pas spécifié, le sélecteur css est utilisé.
+Le sélecteur XPath est également pris en charge et peut être fourni avec la configuration suivante:</li>
+</ol>
+<pre><code class="yaml"> selector:
+     type: xpath
+     locator: //span[id='mySpan']/ancestor::form/
+</code></pre>
+
+<ol>
+<li>
+<p>Le namespace de l'élément (doit être étendu à partir de Oro\Bundle\TestFrameworkBundle\Behat\Element\Element<code>).
+Lorsqu'elle est omise, la classe</code>Oro\Bundle\TestFrameworkBundle\Behat\Element\Element` est utilisée par défaut.</p>
+</li>
+<li>
+<p><code>options</code> est un tableau d'options supplémentaires stockées dans la propriété options de la classe Element.
+Il est fortement recommandé de fournir une classe avec des options de mappage pour les éléments de formulaire, car cela augmente la vitesse de test et garantit un mappage de champ plus précis.</p>
+</li>
+</ol>
+<h2 id="mappage-des-champs-de-formulaire">Mappage des champs de formulaire</h2>
+<p>Par défaut, les tests utilisent le <a href="http://mink.behat.org/en/latest/guides/traversing-pages.html#named-selectors">sélecteur de champ nommé</a>  pour mapper les champs du formulaire.
+Le sélecteur de nom de champ a recherché le champ par son identifiant, son nom, son label ou son placeholder.
+Vous êtes libre d'utiliser n'importe quel sélecteur pour mapper des champs de formulaire ou encapsuler un élément dans l'élément behat particulier.</p>
+<pre><code class="yaml"> oro_behat_extension:
+   elements:
+     Payment Method Config Type Field:
+       class: Oro\Bundle\PaymentBundle\Tests\Behat\Element\PaymentMethodConfigType
+     PaymentRuleForm:
+       selector: &quot;form[id^='oro_payment_methods_configs_rule']&quot;
+       class: Oro\Bundle\TestFrameworkBundle\Behat\Element\Form
+       options:
+         mapping:
+           Method:
+             type: 'xpath'
+             locator: '//div[@id[starts-with(.,&quot;uniform-oro_payment_methods_configs_rule_method&quot;)]]'
+             element: Payment Method Config Type Field
+</code></pre>
+
+<p>Vous devez maintenant implémenter la méthode <code>setValue</code> de l'élément:</p>
+<pre><code class="php">&lt;?php
+ namespace Oro\Bundle\PaymentBundle\Tests\Behat\Element;
+ use Oro\Bundle\TestFrameworkBundle\Behat\Element\Element;
+ class PaymentMethodConfigType extends Element
+ {
+     /**
+      * {@inheritdoc}
+      */
+     public function setValue($value)
+     {
+         $values = is_array($value) ? $value : [$value];
+         foreach ($values as $item) {
+             $parentField = $this-&gt;getParent()-&gt;getParent()-&gt;getParent()-&gt;getParent();
+             $field = $parentField-&gt;find('css', 'select');
+             self::assertNotNull($field, 'Select payment method field not found');
+             $field-&gt;setValue($item);
+             $parentField-&gt;clickLink('Add');
+             $this-&gt;getDriver()-&gt;waitForAjax();
+         }
+     }
+ }
+</code></pre>
+
+<p>Vous pouvez maintenant l'utiliser dans une étape standard:</p>
+<pre><code class="yaml"> Feature: Payment Rules CRUD
+   Scenario: Creating Payment Rule
+     Given I login as administrator
+     And I go to System/ Payment Rules
+     And I click &quot;Create Payment Rule&quot;
+     When I fill &quot;Payment Rule Form&quot; with:
+       | Method | PayPal |
+</code></pre>
+
+<h3 id="mappages-de-formulaires-integres">Mappages de formulaires intégrés :</h3>
+<p>Parfois, un formulaire apparaît dans l'iframe. Behat peut passer à l'iframe par son identifiant.
+Pour remplir correctement le formulaire dans l'iframe, spécifiez l'id iframe dans les options du formulaire:</p>
+<pre><code class="yaml">   oro_behat_extension:
+     elements:
+       MagentoContactUsForm:
+         selector: 'div#page'
+         class: Oro\Bundle\TestFrameworkBundle\Behat\Element\Form
+         options:
+           embedded-id: embedded-form
+           mapping:
+             First name: 'oro_magento_contactus_contact_request[firstName]'
+             Last name: 'oro_magento_contactus_contact_request[lastName]'
+</code></pre>
+
+<h2 id="element-de-page">ELement de page</h2>
+<p>L'élément Page encapsule la page Web entière avec son URL et son chemin d'accès à la page. Chaque élément Page doit étendre <code>Oro\Bundle\TestFrameworkBundle\Behat\Element\Page</code>.</p>
+<p>Exemple de Configuration de Page :</p>
+<pre><code class="yaml"> oro_behat_extension:
+   pages:
+     UserProfileView:
+       class: Oro\Bundle\UserBundle\Tests\Behat\Page\UserProfileView
+       route: 'oro_user_profile_view'
+</code></pre>
+
+<p>Exemple de classe de page:</p>
+<pre><code class="php"> namespace Oro\Bundle\UserBundle\Tests\Behat\Page;
+
+ use Oro\Bundle\TestFrameworkBundle\Behat\Element\Page;
+
+ class UserProfileView extends Page
+ {
+     /**
+      * {@inheritdoc}
+      */
+     public function open(array $parameters = [])
+     {
+         $userMenu = $this-&gt;elementFactory-&gt;createElement('UserMenu');
+         $userMenu-&gt;find('css', '[data-toggle=&quot;dropdown&quot;]')-&gt;click();
+
+         $userMenu-&gt;clickLink('My User');
+     }
+ }
+</code></pre>
+
+<p>Vous pouvez maintenant utiliser plusieurs étapes significatives:</p>
+<pre><code class="yaml"> And I open User Profile View page
+ And I should be on User Profile View page
+</code></pre>
+
+<h2 id="fixtures">Fixtures :</h2>
+<h3 id="feature-fixtures">Feature Fixtures :</h3>
+<p>Chaque fois que behat exécute une nouvelle fonctionnalité, l'état de l'application est réinitialisé par défaut :
+il n'y a qu'un seul utilisateur administrateur, une organisation, une unité commerciale et des rôles par défaut dans la base de données.</p>
+<p>Les tests de fonctionnalités doivent s'appuyer sur les données disponibles dans l'application après l'exécution de la commande oro: install. Dans la plupart des cas, cela ne suffit pas.</p>
+<p>Ainsi, vous avez deux façons d'obtenir plus de données dans le système: en utilisant des fixtures de base ou des fixtures alice.</p>
+<h3 id="fixtures-basiques">Fixtures basiques</h3>
+<p>Vous pouvez créer un nombre quelconque d'entités dans les tests de fonctionnalités. <code>FixtureContext</code> devine la classe d'entité, crée le nombre nécessaire d'objets
+et utilise <a href="https://github.com/fzaninotto/faker">faker</a> pour remplir les champs requis lorsque leur valeur n'a pas été spécifiée explicitement.</p>
+<p>Vous utilisez à la fois les références faker et les <a href="https://doc.oroinc.com/master/backend/automated-tests/behat/#behat-entity-references"> références d'entité</a> dans les appareils en ligne.</p>
+<pre><code> Given the following contacts:
+   | First Name | Last Name | Email     |
+   | Joan       | Anderson  | &lt;email()&gt; |
+   | Craig      | Bishop    | &lt;email()&gt; |
+   | Jean       | Castillo  | &lt;email()&gt; |
+   | Willie     | Chavez    | &lt;email()&gt; |
+   | Arthur     | Fisher    | &lt;email()&gt; |
+   | Wanda      | Ford      | &lt;email()&gt; |
+ And I have 5 Cases
+ And there are 5 calls
+ And there are two users with their own 7 Accounts
+ And there are 3 users with their own 3 Tasks
+ And there is user with its own Account
+</code></pre>
+
+<h3 id="fixtures-alice">Fixtures Alice</h3>
+<p>Parfois, vous avez besoin de nombreuses entités différentes avec des relations complexes. Dans de tels cas, vous pouvez utiliser des fixtures Alice.
+ Alice est une bibliothèque qui vous permet de créer facilement des fixtures au format yml.</p>
+<h4 id="note_1">NOTE :</h4>
+<p>Voir la <a href="https://github.com/nelmio/alice/blob/2.x/README.md">documentation d'Alice</a> pour plus d'informations.</p>
+<p>Les fixtures doivent être situés dans le répertoire {BundleName}/Tests/Behat/Features/Fixtures. Pour charger une fixture avant l'exécution des tests de fonctionnalité,
+ajoutez une balise (annotation) qui est construite à l'aide de la convention suivante <code>@fixture-BundleName:fixture_file_name.yml</code>, par exemple:</p>
+<pre><code class="yaml"> @fixture-OroCRMBundle:mass_action.yml
+ Feature: Mass Delete records
+</code></pre>
+
+<p>Il est également possible de charger des fixtures pour tout autre bundle disponible pour l'application.</p>
+<p>Par exemple:</p>
+<pre><code class="yaml"> @fixture-OroUserBundle:user.yml
+ @fixture-OroOrganizationBundle:BusinessUnit.yml
+ Feature: Adding attributes for workflow transition
+</code></pre>
+
+<p>De plus, Alice vous permet <a href="https://github.com/nelmio/alice/blob/a060587f3c90edd92a65c6c0d163972f49bc4e21/doc/fixtures-refactoring.md#including-files">d'inclure des fichiers</a> via l'extension, vous pouvez donc importer des fichiers à partir d'autres bundles:</p>
+<pre><code class="yaml"> include:
+     - '@OroCustomerBundle/Tests/Behat/Features/Fixtures/CustomerUserAmandaRCole.yml'
+</code></pre>
+
+<p><strong>Vous devez toujours inclure les fixtures d'autres bundles avec des entités qui ont été déclarées dans ce bundle</strong></p>
+<h2 id="references-dentites">Références d'entités</h2>
+<p>Vous pouvez utiliser des références aux entités dans les fixtures de base et <a href="https://github.com/nelmio/alice/blob/2.x/doc/relations-handling.md#handling-relations">alice</a>.</p>
+<p><code>{Bundle}\Tests\Behat\ReferenceRepositoryInitializer</code>  est utilisé pour créer des références pour des objets qui existent déjà dans la base de données.</p>
+<ul>
+<li>Il est interdit de modifier ou d'ajouter de nouvelles entités dans le  Initializer.</li>
+<li>Il doit implémenter <code>ReferenceRepositoryInitializerInterface</code> et ne doit pas avoir de dépendances.</li>
+<li>Pour afficher toutes les références, utilisez la commande <code>bin/behat --available-references</code>.</li>
+</ul>
+<p>Les références les plus utilisées sont:</p>
+<ul>
+<li><code>@admin</code>- Utilisateur Admin</li>
+<li><code>@adminRole</code> - Administrator role</li>
+<li><code>@organization</code> - Default organization</li>
+<li><code>@business_unit</code> - Default business unit</li>
+</ul>
+<h2 id="health-checkers">Health Checkers</h2>
+<p>Behat a une possibilité native d'invoquer des formateurs sans exécuter les tests et les hooks.</p>
+<p>Vous pouvez essayer:</p>
+<pre><code class="yaml"> bin/behat --dry-run
+</code></pre>
+
+<p>Cela peut être utile au cas où vous n'êtes pas sûr d'avoir déclaré tout le contexte nécessaire à votre fonctionnalité.
+OroBehatExtension améliore cette fonctionnalité et ajoute des fonctionnalités supplémentaires.</p>
+<h3 id="fixtureschecker">FixturesChecker</h3>
+<p>Chaque fonctionnalité peut avoir des fixtues Alice, ajoutés par des tags. <strong>FixturesChecker</strong> vérifiera chaque fonctionnalité pour la capacité de charger des appareils, sans réellement charger la fixture.</p>
+<h3 id="ecrire-une-feature">Ecrire une feature</h3>
+<p>Chaque bundle doit contenir ses propres tests behat pour les fonctionnalités du répertoire <code>wn behat tests for features in the</code>.
+Chaque fonctionnalité est un fichier distinct avec l'extension <code>.feature</code> et une syntaxe spécifique.</p>
+<h4 id="note_2">Note :</h4>
+<p>Voir la doc de <a href="https://cucumber.io/docs/">Cucumber</a> pour plus d'infos.</p>
+<p>Une fonctionnalité commence par ce qui suit:</p>
+<ul>
+<li>Le mot clé <code>Feature</code>: et le nom de la fonctionnalité (ceux-ci doivent rester sur la même ligne),</li>
+<li>Une description facultative (peut être formatée sur plusieurs lignes). Une description significative est fortement recommandée.</li>
+</ul>
+<p>Vient ensuite le scénario de fonctionnalité - un exemple spécifique qui illustre une règle métier et se compose d'étapes séquentielles.
+En plus d'être une spécification de test et une documentation de test, un scénario définit les étapes de test et sert de spécification exécutable du système.</p>
+<p>Normalement, une étape commence par <strong>Given</strong>, <strong>When</strong> ou <strong>Then</strong>.</p>
+<p>S'il existe plusieurs étapes Given ou When les unes sous les autres, vous pouvez utiliser <strong>And</strong> ou <strong>But</strong> pour les organiser en groupes logiques.
+Cucumber ne fait pas de différence entre les mots clés, mais le choix du bon est important pour la lisibilité du scénario dans son ensemble.</p>
+<h4 id="note_3">Note :</h4>
+<p>Jetez un œil à la feature login <code>login.feature</code> dans <a href="https://github.com/oroinc/platform/blob/50047c1d8abc5f811d0db759b501b8d27b0bff65/src/Oro/Bundle/UserBundle/Tests/Behat/Features/login.feature">OroUserBundle</a></p>
+<pre><code>Feature: User login
+   In order to login in application
+   As an OroCRM admin
+   I need to be able to authenticate
+
+ Scenario: Success login
+   Given I am on &quot;/user/login&quot;
+   When I fill &quot;Login Form&quot; with:
+       | Username | admin |
+       | Password | admin |
+   And I press &quot;Log in&quot;
+   Then I should be on &quot;/&quot;
+
+ Scenario Outline: Fail login
+   Given I am on &quot;/user/login&quot;
+   When I fill &quot;Login Form&quot; with:
+       | Username | &lt;login&gt;    |
+       | Password | &lt;password&gt; |
+   And I press &quot;Log in&quot;
+   Then I should be on &quot;/user/login&quot;
+   And I should see &quot;Invalid user name or password.&quot;
+
+   Examples:
+   | login | password |
+   | user  | pass     |
+   | user2 | pass2    |
+</code></pre>
+
+<ol>
+<li>La ligne <code>Feature: User login</code> démarre la fonctionnalité et lui donne un titre.</li>
+<li>Behat n'analyse pas les trois lignes de texte suivantes: In order to... As an... I need to...
+Ces lignes fournissent un contexte lisible par l'homme aux personnes qui réviseront ou modifieront cette fonctionnalité. Ils décrivent la valeur commerciale dérivée de l'inclusion de la fonctionnalité dans le logiciel.</li>
+<li>La ligne <code>Scenario: Success login</code> démarre le scénario et fournit une description.</li>
+<li>Les six lignes suivantes représentent les étapes du scénario. Chaque étape correspond à une expression régulière définie dans le contexte.</li>
+<li>La ligne <code>Scenario Outline: Fail login</code> démarre le scénario suivant. Dans le plan du scénario, les placeholders sont utilisés à la place des valeurs réelles
+et les valeurs pour l'exécution du scénario sont fournies sous la forme d'un ensemble d'exemples sous le plan.
+Le scénario vous aide à exécuter ces étapes plusieurs fois, en parcourant les valeurs fournies dans la section <code>Exemples:</code> et en testant ainsi le même flux avec des entrées différentes.
+Le plan du scénario est un modèle qui n'est jamais exécuté seul.
+Au lieu de cela, un scénario qui suit un plan s'exécute une fois pour chaque ligne dans la section <code>Exemples:</code> en dessous (à l'exception de la première ligne d'en-tête qui est ignorée).
+Considérez un espace réservé comme une variable. Il est remplacé par une valeur réelle depuis <code>Exemples:</code>, où le texte entre les crochets d'angle de l'espace réservé (par exemple, <login>) correspond au texte de l'en-tête de la colonne du tableau (par exemple, login).</li>
+</ol>
+<h2 id="depannage">Dépannage</h2>
+<h3 id="augmentez-les-performances-des-applications-ubuntu">Augmentez les performances des applications (Ubuntu)</h3>
+<p>Behat a des isolateurs pour rendre les fonctionnalités de behat indépendantes les unes des autres. L'un de ces isolateurs est la base de données.
+Il crée un vidage de base de données avant le début de l'exécution, puis le supprime et le restaure à partir du vidage après chaque fonctionnalité.
+Cela peut prendre un certain temps (jusqu'à 2 minutes sur un SSD lent). Si vous exécutez souvent des tests behat, vous souhaitez diminuer ce temps.
+Pour booster l'isolateur de base de données, vous pouvez monter le répertoire de la base de données sur la RAM. Dans l'illustration ci-dessous, nous utilisons <a href="https://en.wikipedia.org/wiki/Tmpfs">tmpfs</a>:</p>
+<p>Créez un répertoire tmpfs:</p>
+<pre><code>sudo mkdir /var/tmpfs
+sudo mount -t tmpfs -o size=4G tmpfs /var/tmpfs
+</code></pre>
+
+<p>Editez <code>/etc/mysql/mysql.conf.d/mysqld.cnf</code></p>
+<p><code>datadir = /var/tmpfs/mysql</code></p>
+<p>Ajoutez un nouveau stockage à <code>/etc/fstab</code>:</p>
+<p><code>tmpfs  /var/tmpfs  tmpfs  nodev,nosuid,noexec,noatime,size=4G  0 0</code></p>
+<p>Copiez MySQL dans tmpfs:</p>
+<pre><code>sudo service mysql stop
+sudo cp -Rfp /var/lib/mysql /var/tmpfs
+</code></pre>
+
+<p>Nous devons dire à AppArmor de laisser MySQL écrire dans le nouveau répertoire en créant un alias entre le répertoire par défaut et le nouvel emplacement.</p>
+<p><code>echo "alias /var/lib/mysql/ -&gt; /var/tmpfs/mysql," | sudo tee -a /etc/apparmor.d/tunables/alias</code></p>
+<p>Pour que les modifications prennent effet, redémarrez AppArmor:</p>
+<p><code>sudo systemctl restart apparmor</code></p>
+<p>Vous pouvez maintenant redémarrer MySQL:</p>
+<p><code>sudo service mysql start</code></p>
+<h4 id="facultatif-creer-un-script-de-demarrage">(facultatif) Créer un script de démarrage</h4>
+<p>Après avoir redémarré l'ordinateur, toutes les données et la structure de la base de données sont perdues. Par conséquent, vous devez copier le répertoire de données manuellement après chaque redémarrage.
+Alternativement, vous pouvez créer un script de démarrage qui peut être lancé automatiquement en tant que service systemd.</p>
+<p>Pour préparer la récupération automatique à l'aide d'un script de démarrage:</p>
+<ol>
+<li>Créez un mysql_copy_tmpfs.sh dans le répertoire bin (par exemple /usr/local/bin):</li>
+</ol>
+<p>````shell script</p>
+<h1 id="binbash">!/bin/bash</h1>
+<p>cp -Rfp /var/lib/mysql /var/tmpfs</p>
+<pre><code>
+2. Créez un fichier de configuration d'unité /etc/systemd/system/mysql_copy_tmpfs.service qui planifiera la priorité de l'exécution du service avant le démarrage de MySQL:
+```
+[Unit]
+Description=Copy mysql to tmpfs
+Before=mysql.service
+After=mount.target
+
+[Service]
+User=mysql
+Type=oneshot
+ExecStart=/bash/script/path/mysql_copy_tmpfs.sh
+
+[Install]
+WantedBy=multi-user.target
+```
+
+3. Une fois les fichiers créés, activez le service configuré:
+
+`systemctl enable mysql_copy_tmpfs.service`
+
+Il démarre automatiquement après le redémarrage de la machine.
+
+**Erreur courante : Couldn’t generate random unique value for OroBundleUserBundleEntityUser: username in 128 tries** 
+
+hot fix: 
+
+Vérifiez votre fixtures. Supprimez le suffixe (unique) dans la propriété d'entité dans le luminaire d'entité, comme dans l'exemple suivant:
+
+**Fixture incorrect** :
+
+````yaml
+Oro\Bundle\UserBundle\Entity\User:
+    charlie:
+      firstName: Marge
+      lastName: Marge Simpson
+      username (unique): marge228
+</code></pre>
+
+<p><strong>Correction</strong></p>
+<pre><code class="yaml">Oro\Bundle\UserBundle\Entity\User:
+    charlie:
+      firstName: Marge
+      lastName: Marge Simpson
+      username: marge228
+</code></pre>
+
+<p><strong>Erreur racine</strong></p>
+<p>Alice se souvient de toutes les valeurs de la propriété d'entité donnée et essaie de générer une valeur unique, mais cela provoque des problèmes lorsqu'il n'y a qu'une seule valeur pour la propriété d'entité.</p>
+<p>Cette option peut toujours être utilisée si elle est combinée avec la fausse valeur générée automatiquement, comme dans l'exemple suivant:</p>
+<pre><code class="yaml">Oro\Bundle\UserBundle\Entity\User:
+    charlie:
+      firstName (unique): &lt;firstName()&gt;
+      lastName: Marge Simpson
+      username: marge228
+</code></pre>
+
+<h3 id="ajouter-des-extraits">Ajouter des extraits</h3>
+<p>Le développement des fonctionnalités comprend les étapes de conception suivantes:</p>
+<ul>
+<li>Créez un brouillon de la fonctionnalité: implémentez un scénario de haut niveau qui couvre l'histoire. À ce stade, vous devez avoir une compréhension claire des résultats commerciaux obtenus par l'automatisation des tests de fonctionnalités.</li>
+<li>Spécifiez tous les scénarios susceptibles de se produire lors de l'utilisation de la fonction. Les étapes exactes ne sont pas nécessaires.</li>
+<li>Finalisez la vue d'ensemble de la mise en œuvre et planifiez les différentes étapes.</li>
+</ul>
+<p>Certaines étapes peuvent déjà être entièrement automatisées. Idéalement, vous devez automatiser les étapes manquantes après avoir prévu de les utiliser dans vos scénarios de test de fonctionnalités. Si la fonctionnalité de fonctionnalité est déjà implémentée, il est nécessaire d'implémenter les étapes behat impliquées dans le test de fonctionnalité.</p>
+<p>Cependant, il est parfois impossible de le faire immédiatement (en raison de l'implémentation incomplète des fonctionnalités, des problèmes de blocage ou des informations manquantes). Dans ce cas, vous pouvez temporairement vous moquer des étapes qui manquent d'implémentation.</p>
+<p>Un moyen rapide de le faire consiste à exécuter dry-run sur vos tests de fonctionnalités. Dans la console, exécutez la commande suivante:</p>
+<p><code>bin/behat path/to/your.feature --dry-run --append-snippets --snippets-type=regex</code></p>
+<p>La fonctionnalité est exécutée en mode –dry-run , au stade final de l'exécution, vous êtes invité à ajouter des étapes de mise en œuvre simulée non définies à l'un des contextes existants.</p>
+<h3 id="comment-trouver-letape-necessaire">Comment trouver l'étape nécessaire</h3>
+<p>Lorsque vous concevez des scénarios d'automatisation de test pour la nouvelle fonctionnalité, vous pouvez avoir du mal à trouver des étapes à réutiliser parmi les centaines d'étapes déjà automatisées.
+Utilisez les conseils ci-dessous pour trouver l'étape nécessaire.</p>
+<p>Suggestion automatique dans PhpStorm</p>
+<p>Lors de la conception d'un scénario dans le fichier de fonctionnalités, PhpStorm vous propose des conseils sur les étapes implémentées qui correspondent aux mots clés. Par exemple, lorsque vous tapez grid ou form, les étapes qui impliquent ces éléments apparaissent dans le bloc de suggestions.</p>
+<p><img alt="Step Suggestion" src="../images/phpstorm_step_suggestion.png" /></p>
+<p>Si PhpStorm ne vous propose aucun conseil lors de la frappe, veuillez vérifier les points suivants:</p>
+<ol>
+<li>Vous avez installé les vendors</li>
+<li>Vous avez installé le plugin behat pour PhpStorm</li>
+</ol>
+<p>Trouvez le contexte nécessaire</p>
+<p>Chaque classe Context doit implémenter l'interface <code>Behat\Behat\Context\Context</code>. Obtenez la liste des contextes implémentés et trouvez celui nécessaire par nom.</p>
+<p><img alt="Get Context by name" src="../images/context_implements_interface.png" /></p>
+<p><img alt="Get Context by file" src="../images/find_context.png" /></p>
+<p>Habituellement, le nom du contexte est explicite, par exemple, GridContext, FormContext, ACLContext, etc.</p>
+<p>Utiliser Grep dans la console</p>
+<p>Si, pour une raison quelconque, vous n'utilisez pas PhpStorm ou le plugin Behat, vous pouvez toujours trouver l'étape nécessaire en filtrant la sortie de la commande qui prévisualise toutes les étapes de la fonctionnalité (utilisez Grep).</p>
+<p>Tapez la commande suivante dans votre console:</p>
+<p><code>bin/behat -dl -s AcmeDemoBundle | grep "flash message"</code></p>
+<p><img alt="Grep console" src="../images/grep_flash_messages.png" /></p>
+<p><code>bin/behat -dl -s AcmeDemoBundle | grep "grid"</code></p>
+<p><img alt="Grep console 2" src="../images/grep_grid.png" /></p>
+<p>PS :  Vous ne pouvez utiliser l'interface de ligne de commande behat qu'après avoir installé l'application.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../javascript/" class="btn btn-neutral float-right" title="Javascript">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../intro/" class="btn btn-neutral" title="Intro"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../intro/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../javascript/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
