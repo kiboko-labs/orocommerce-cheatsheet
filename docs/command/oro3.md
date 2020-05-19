@@ -8,13 +8,13 @@ Useful command with Oro 3.x
 ```bash
 composer install --prefer-dist --no-dev
 bin/console oro:install --timeout=0
- ```
+```
 
 **Start message queue consume**
 
 ```bash
 bin/console oro:message-queue:consume
- ```
+```
 
 with less or more informations
 
@@ -22,14 +22,13 @@ with less or more informations
 bin/console oro:message-queue:consume -v
 bin/console oro:message-queue:consume -vv
 bin/console oro:message-queue:consume -vvv
- ```
+```
    
 **Remove cache**
 
 ```bash
 rm -rf var/cache/*
 ```
-
 
 ## Indexation
 
@@ -119,6 +118,7 @@ bin/console oro:user:impersonate user
 ## ElasticSearch
 
 En cas d'erreur d'indexation :
+
 ```bash
 bin/console oro:website-elasticsearch:create-website-indexes
 ```
@@ -137,6 +137,7 @@ bin/console oro:translation:dump && bin/console oro:localization:dump
 ```
 
 Load with parameters :
+
 ```bash
 bin/console oro:translation:load --languages=en --languages=fr --rebuild-cache
 ```
@@ -150,6 +151,7 @@ bin/console fos:js-routing:dump --target web/js/routes.js
 ```
 
 **Worflows & Processes**
+
 ```
 bin/console oro:workflow:definitions:load
 bin/console oro:process:configuration:load
