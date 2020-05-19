@@ -27,7 +27,7 @@ différents emulateurs de navigateur et leurs drivers.
 
 6. [MinkSelenium2Driver](https://github.com/minkphp/MinkSelenium2Driver) vas faire le lien entre Mink vers Selenium en utilisant le protocole WebDriver
 
-7. [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/) est un outil pour automatiser les tests dans Goodle Chrome
+7. [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/) est un outil pour automatiser les tests dans Google Chrome
 
 
 ## Conventions
@@ -96,7 +96,7 @@ et les scénarios qui se produisent après plusieurs scénarios préliminaires. 
 
 - **Utiliser des fixtures yml sémantiques**
 
-Utilisez uniquement les entités qui se trouvent dans le bundle que vous testez. Toutes les autres entités doivent être incluses via une importation. Voir les [Fixtures Alince](https://github.com/nelmio/alice) pour plus d'informations.
+Utilisez uniquement les entités qui se trouvent dans le bundle que vous testez. Toutes les autres entités doivent être incluses via une importation. Voir les [Fixtures Alice](https://github.com/nelmio/alice) pour plus d'informations.
 
 - **Nommer les éléments dans le style camelCase sans espaces**
 
