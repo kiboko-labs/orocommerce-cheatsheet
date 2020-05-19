@@ -214,26 +214,20 @@
 <p><strong>Install</strong></p>
 <pre><code class="bash">composer install --prefer-dist --no-dev
 bin/console oro:install --timeout=0
- ```
+</code></pre>
 
-**Start message queue consume**
+<p><strong>Start message queue consume</strong></p>
+<pre><code class="bash">bin/console oro:message-queue:consume
+</code></pre>
 
-```bash
-bin/console oro:message-queue:consume
- ```
-
-with less or more informations
-
-```bash
-bin/console oro:message-queue:consume -v
+<p>with less or more informations</p>
+<pre><code class="bash">bin/console oro:message-queue:consume -v
 bin/console oro:message-queue:consume -vv
 bin/console oro:message-queue:consume -vvv
- ```
+</code></pre>
 
-**Remove cache**
-
-```bash
-rm -rf var/cache/*
+<p><strong>Remove cache</strong></p>
+<pre><code class="bash">rm -rf var/cache/*
 </code></pre>
 
 <h2 id="indexation">Indexation</h2>
