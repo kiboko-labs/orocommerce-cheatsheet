@@ -5,8 +5,9 @@ site_description: Documentation française pour OroCommerce
 site_author: Kiboko
 remote_branch: gh-pages
 dev_addr: 'localhost:8010'
-theme: material
+theme: readthedocs
 nav:
+    - Home: index.md
     - Useful commands:
           - Oro 1.x: command/oro1.md
           - Oro 3.x: command/oro3.md
@@ -27,6 +28,7 @@ nav:
           - Ajouter une Mass-Action sur la grille des produits: frontend/mass-actions.md
           - Create a frontend form for an entity: frontend/form.md
           - RGPD: frontend/consent-rgpd.md
+          - Product List: frontend/products-list.md
     - Environment tips:
           - Installer Xdebug pour php 7.1 sur MacOS: environment/installer-xdebug-php71.md
           - Installer RabbitMQ avec Brew sur MacOS: environment/installer-rabbitmq-brew.md
