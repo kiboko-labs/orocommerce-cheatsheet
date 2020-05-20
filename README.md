@@ -2,9 +2,9 @@
 
 ## Installation :
 
-[Doc original de Mkdocs](https://www.mkdocs.org/)
+[Installation](https://www.mkdocs.org/#installation)
 
-- Pour modifier cette doc , vous devez avoir Python en version 3.5 minimal et pip pour la version de python 3 [Installation](https://www.mkdocs.org/#installation)
+- Pour modifier cette doc , vous devez avoir Python en version 3.5 minimal et pip pour la version de python 3
 
 **!!! WARNING !!!** Sur mac on utilise les commandes python3 et pip3, si vous avez des soucis pour utiliser python3 sur mac google est votre amie.
 
