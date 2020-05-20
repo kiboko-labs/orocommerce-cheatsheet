@@ -8,7 +8,7 @@
 
 - Vous devez installer mkdocs avec pip/pip3 
 
-- cloner ce projet `git clone git@github.com:kiboko-labs/orocommerce-cheatsheet.git
+- cloner ce projet `git clone git@github.com:kiboko-labs/orocommerce-cheatsheet.git`
 
 - `cd orocommerce-cheatsheet`
 
