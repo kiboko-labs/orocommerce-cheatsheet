@@ -189,7 +189,7 @@ Pour exécuter ChromeDriver en arrière-plan, ajoutez le symbole esperluette (&)
 `chromedriver --url-base=wd/hub --port=4444 > /tmp/driver.log 2>&1 &`
 
 
-Avant de commencer, il est fortement recommandé de vous familiariser avec les arguments et les options de Behat. Exécutez bin / behat --help pour une description détaillée.
+Avant de commencer, il est fortement recommandé de vous familiariser avec les arguments et les options de Behat. Exécutez `bin/behat --help` pour une description détaillée.
 
 Lorsque l'application Oro est installée sans données de démonstration et est en cours d'exécution, et que ChromeDriver est en cours d'exécution, vous pouvez commencer à exécuter les tests behat par fonctionnalité à partir de la racine de l'application.
 
