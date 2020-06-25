@@ -589,7 +589,7 @@ Chaque fonctionnalité peut avoir des fixtues Alice, ajoutés par des tags. **Fi
 
 ### Ecrire une feature
 
-Chaque bundle doit contenir ses propres tests behat pour les fonctionnalités du répertoire `wn behat tests for features in the `.
+Chaque bundle doit contenir ses propres tests behat pour les fonctionnalités du répertoire `{BundleName}/Tests/Behat/Features/`.
 Chaque fonctionnalité est un fichier distinct avec l'extension `.feature` et une syntaxe spécifique.
 
 #### Note : 
