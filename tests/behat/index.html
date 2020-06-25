@@ -165,7 +165,7 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#etat-de-lapplication-initiale">Etat de l'application initiale</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#install-test-automation-tools">Install Test Automation Tools</a>
+    <li class="toctree-l3"><a class="reference internal" href="#installation-des-outils-de-test">Installation des outils de test</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#note">Note :</a>
     </li>
@@ -388,16 +388,18 @@ Par exemple, un élément nommé OroProductForm peut être mentionné dans l'ét
 <p><strong>Configuration Behat</strong></p>
 <p>La configuration de base se trouve dans behat.yml.dist. Chaque application possède son propre fichier behat.yml.dist à la racine du répertoire de l'application.
 Créez votre behat.yml (il est ignoré par git automatiquement et n'est jamais validé dans le référentiel distant), importez la configuration de base et modifiez-la pour l'adapter à votre environnement:</p>
-<pre><code class="yaml">imports:
+<pre><code>yaml
+imports:
    - ./behat.yml.dist
 
  default: &amp;default
      extensions: &amp;default_extensions
          Behat\MinkExtension:
              browser_name: chrome
-             base_url: &quot;http://your-domain.local&quot;
+             base_url: &quot;http://localhost:8010&quot;
 </code></pre>
 
+<p>Configurer votre parameters.yml avec le search engine en orm et dbal pour les messages</p>
 <h2 id="installation">Installation</h2>
 <h3 id="installation-des-dependances-de-developpement">Installation des dépendances de développement :</h3>
 <p>Si vous avez installé des dépendances avec le paramètre --no-dev plus tôt, supprimez le fichier composer.lock de la racine du répertoire de l'application.</p>
@@ -407,13 +409,14 @@ Créez votre behat.yml (il est ignoré par git automatiquement et n'est jamais v
 <p>Dans Oro, l'état initial est celui lorsque l'application est installé sans données de démonstration.
 Les scénarios qui testent des fonctionnalités doivent s'appuyer sur cet état et doivent créer toutes les données nécessaires à des vérifications supplémentaires.
 Les données peuvent être créées par les étapes du scénario ou comme montages.</p>
-<p>Installez l'application sans données de démonstration en mode production à l'aide de la commande suivante:</p>
+<p>Installez l'application en anglais, sans données de démonstration en mode production, sans rabbit et elastic à l'aide de la commande suivante:</p>
 <pre><code> bin/console oro:install  --drop-database --user-name=admin --user-email=admin@example.com  \
-   --application-url=http://dev-crm.local --user-firstname=John --user-lastname=Doe \
-   --user-password=admin  --organization-name=ORO --env=prod --sample-data=n --timeout=3000
+   --application-url=http://localhost:8010 --user-firstname=John --user-lastname=Doe \
+   --user-password=admin  --organization-name=ORO --env=prod --sample-data=n --timeout=3000 \
+   --formatting-code=en --language=en
 </code></pre>
 
-<h3 id="install-test-automation-tools">Install Test Automation Tools</h3>
+<h3 id="installation-des-outils-de-test">Installation des outils de test</h3>
 <p>Pour exécuter des scénarios qui utilisent les fonctionnalités de l'application Oro, exécutez le navigateur WebKit (à l'aide de ChromeDriver). Pour installer ChromeDriver, exécutez les commandes suivantes:</p>
 <pre><code> CHROME_DRIVER_VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)
  mkdir -p &quot;$HOME/chrome&quot; || true
@@ -427,11 +430,16 @@ Les données peuvent être créées par les étapes du scénario ou comme montag
 <p>Une fois l'exécution de la commande terminée, vous pouvez utiliser <code>chromedriver dans le terminal.</code></p>
 <h3 id="execution-des-tests">Exécution des tests</h3>
 <p>Conditions préalables</p>
-<p>Exécutez ChromeDriver:</p>
+<ul>
+<li>Exécutez ChromeDriver:</li>
+</ul>
 <p><code>chromedriver --url-base=wd/hub --port=4444 &gt; /tmp/driver.log 2&gt;&amp;1</code></p>
 <p>Pour exécuter ChromeDriver en arrière-plan, ajoutez le symbole esperluette (&amp;) à la fin de la ligne, comme dans les exemples suivants:</p>
 <p><code>chromedriver --url-base=wd/hub --port=4444 &gt; /tmp/driver.log 2&gt;&amp;1 &amp;</code></p>
-<p>Avant de commencer, il est fortement recommandé de vous familiariser avec les arguments et les options de Behat. Exécutez bin / behat --help pour une description détaillée.</p>
+<ul>
+<li>Lancer un serveur sur le port spécifié pour l'installation (ici 8010 )</li>
+</ul>
+<p>Avant de commencer, il est fortement recommandé de vous familiariser avec les arguments et les options de Behat. Exécutez <code>bin/behat --help</code> pour une description détaillée.</p>
 <p>Lorsque l'application Oro est installée sans données de démonstration et est en cours d'exécution, et que ChromeDriver est en cours d'exécution, vous pouvez commencer à exécuter les tests behat par fonctionnalité à partir de la racine de l'application.</p>
 <p>Vous pouvez utiliser l'une des commandes suivantes.</p>
 <p>Exécutez le scénario de test des fonctionnalités:</p>
