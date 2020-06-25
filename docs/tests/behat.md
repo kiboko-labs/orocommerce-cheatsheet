@@ -163,6 +163,8 @@ Installez l'application en anglais, sans données de démonstration en mode prod
 
 Pour exécuter des scénarios qui utilisent les fonctionnalités de l'application Oro, exécutez le navigateur WebKit (à l'aide de ChromeDriver). Pour installer ChromeDriver, exécutez les commandes suivantes:
 
+LINUX : 
+
 ```
  CHROME_DRIVER_VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)
  mkdir -p "$HOME/chrome" || true
@@ -170,6 +172,10 @@ Pour exécuter des scénarios qui utilisent les fonctionnalités de l'applicatio
  unzip "$HOME/chrome/chromedriver_linux64_${CHROME_DRIVER_VERSION}.zip" -d "$HOME/chrome"
  sudo ln -s "$HOME/chrome/chromedriver" /usr/local/bin/chromedriver
 ```
+
+MAC  : 
+
+`brew cask install chromedriver`
 
 ### Note :
 
