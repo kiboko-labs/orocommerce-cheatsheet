@@ -741,7 +741,8 @@ Vérifiez votre fixtures. Supprimez le suffixe (unique) dans la propriété d'en
 
 **Fixture incorrect** :
 
-````yaml
+````
+yaml
 Oro\Bundle\UserBundle\Entity\User:
     charlie:
       firstName: Marge
