@@ -21,5 +21,5 @@
 1. Rajouter un fichier markdown dans le dossier docs
 2. Ajouter un lien dans le fichier mkdocs.yml
 3. Faite un `mkdocs build`
-4. Committez et poussez sur master si vos changements sont bon.
-5. Deployer sur Github Pages avec un `mkdocs gh-deploy`
+4. Si vos changements sont bon, mettez vous sur la branche master et faite un `make deploy m='message de commit'`.
+5. Attendez la maj sur github pages qui est assez lente
