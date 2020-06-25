@@ -170,11 +170,11 @@ Installez l'application sans données de démonstration en mode production à l'
 
 ```
  bin/console oro:install  --drop-database --user-name=admin --user-email=admin@example.com  \
-   --application-url=http://dev-crm.local --user-firstname=John --user-lastname=Doe \
+   --application-url=http://localhost:8010 --user-firstname=John --user-lastname=Doe \
    --user-password=admin  --organization-name=ORO --env=prod --sample-data=n --timeout=3000
 ```
 
-### Install Test Automation Tools
+### Installation des outils de test
 
 Pour exécuter des scénarios qui utilisent les fonctionnalités de l'application Oro, exécutez le navigateur WebKit (à l'aide de ChromeDriver). Pour installer ChromeDriver, exécutez les commandes suivantes:
 
@@ -197,7 +197,7 @@ Une fois l'exécution de la commande terminée, vous pouvez utiliser `chromedriv
 
 Conditions préalables
 
-Exécutez ChromeDriver:
+- Exécutez ChromeDriver:
 
 `chromedriver --url-base=wd/hub --port=4444 > /tmp/driver.log 2>&1`
 
@@ -205,6 +205,7 @@ Pour exécuter ChromeDriver en arrière-plan, ajoutez le symbole esperluette (&)
 
 `chromedriver --url-base=wd/hub --port=4444 > /tmp/driver.log 2>&1 &`
 
+- Lancer un serveur sur le port spécifié pour l'installation/config behat (ici 8010 )
 
 Avant de commencer, il est fortement recommandé de vous familiariser avec les arguments et les options de Behat. Exécutez `bin/behat --help` pour une description détaillée.
 
