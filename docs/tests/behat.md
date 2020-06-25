@@ -310,7 +310,7 @@ Chaque fonctionnalité peut interagir avec l'application et effectuer des opéra
 Pour éviter les collisions de données, les fonctionnalités sont isolées: la base de données et les répertoires de cache sont vidés avant d'exécuter les tests de fonctionnalités;
 ils sont restaurés une fois l'exécution des tests de fonctionnalités terminée.
 
-Chaque isolateur doit implémenter l'interface Oro\Bundle\TestFrameworkBund et le tag oro_behat.isolator avec de la priorité.
+Chaque isolateur doit implémenter l'interface `Oro\Bundle\TestFrameworkBundle\Behat\Isolation\IsolatorInterface` et le tag `oro_behat.isolator avec de la priorité.
 
 #### Désactiver l'isolation des fonctionnalités
 
