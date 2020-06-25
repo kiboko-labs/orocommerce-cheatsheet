@@ -126,7 +126,24 @@ imports:
      extensions: &default_extensions
          Behat\MinkExtension:
              browser_name: chrome
-             base_url: "http://your-domain.local"
+             base_url: "http://localhost:8010"
+```
+
+Créer un fichier parameters_behat.yml si il n'existe pas déja, spécifier une base à part, utiliser le seach engine orm et dbal : 
+```
+database_name: mydbbehat
+search_engine_name: orm
+message_queue_transport: dbal
+```
+
+De plus utilisez un fichier config_behat.yml avec ces lignes au débuts :
+
+```
+imports:
+    - { resource: parameters_behat.yml }
+    - { resource: security.yml }
+    - { resource: services.yml }
+    - { resource: htmlpurifier.yml }
 ```
 
 ## Installation
