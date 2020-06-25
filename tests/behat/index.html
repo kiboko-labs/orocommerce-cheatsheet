@@ -521,7 +521,7 @@ Ce contexte est ajouté à la suite avec les contextes courants.La liste complè
 <p>Chaque fonctionnalité peut interagir avec l'application et effectuer des opérations CRUD. Par conséquent, la base de données peut être modifiée.
 Pour éviter les collisions de données, les fonctionnalités sont isolées: la base de données et les répertoires de cache sont vidés avant d'exécuter les tests de fonctionnalités;
 ils sont restaurés une fois l'exécution des tests de fonctionnalités terminée.</p>
-<p>Chaque isolateur doit implémenter l'interface Oro\Bundle\TestFrameworkBund et le tag oro_behat.isolator avec de la priorité.</p>
+<p>Chaque isolateur doit implémenter l'interface <code>Oro\Bundle\TestFrameworkBundle\Behat\Isolation\IsolatorInterface</code> et le tag `oro_behat.isolator avec de la priorité.</p>
 <h4 id="desactiver-lisolation-des-fonctionnalites">Désactiver l'isolation des fonctionnalités</h4>
 <p>Vous pouvez désactiver l'isolation des fonctionnalités en ajoutant l'option <code>-skip-isolators=database,cache</code> à la commande console behat.
 Dans ce cas, la combinaison des tests de fonctionnalité peut s'exécuter beaucoup plus rapidement, mais la logique de test doit se soucier de la cohérence de la base de données et du cache.</p>
@@ -745,7 +745,7 @@ OroBehatExtension améliore cette fonctionnalité et ajoute des fonctionnalités
 <h3 id="fixtureschecker">FixturesChecker</h3>
 <p>Chaque fonctionnalité peut avoir des fixtues Alice, ajoutés par des tags. <strong>FixturesChecker</strong> vérifiera chaque fonctionnalité pour la capacité de charger des appareils, sans réellement charger la fixture.</p>
 <h3 id="ecrire-une-feature">Ecrire une feature</h3>
-<p>Chaque bundle doit contenir ses propres tests behat pour les fonctionnalités du répertoire <code>wn behat tests for features in the</code>.
+<p>Chaque bundle doit contenir ses propres tests behat pour les fonctionnalités du répertoire <code>{BundleName}/Tests/Behat/Features/</code>.
 Chaque fonctionnalité est un fichier distinct avec l'extension <code>.feature</code> et une syntaxe spécifique.</p>
 <h4 id="note_2">Note :</h4>
 <p>Voir la doc de <a href="https://cucumber.io/docs/">Cucumber</a> pour plus d'infos.</p>
@@ -869,16 +869,19 @@ Vérifiez votre fixtures. Supprimez le suffixe (unique) dans la propriété d'en
 
 **Fixture incorrect** :
 
-````yaml
+</code></pre>
+
+<p>yaml
 Oro\Bundle\UserBundle\Entity\User:
     charlie:
       firstName: Marge
       lastName: Marge Simpson
-      username (unique): marge228
-</code></pre>
+      username (unique): marge228</p>
+<pre><code>
+**Correction**
 
-<p><strong>Correction</strong></p>
-<pre><code class="yaml">Oro\Bundle\UserBundle\Entity\User:
+````yaml
+Oro\Bundle\UserBundle\Entity\User:
     charlie:
       firstName: Marge
       lastName: Marge Simpson
