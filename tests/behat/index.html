@@ -418,6 +418,7 @@ Les données peuvent être créées par les étapes du scénario ou comme montag
 
 <h3 id="installation-des-outils-de-test">Installation des outils de test</h3>
 <p>Pour exécuter des scénarios qui utilisent les fonctionnalités de l'application Oro, exécutez le navigateur WebKit (à l'aide de ChromeDriver). Pour installer ChromeDriver, exécutez les commandes suivantes:</p>
+<p>LINUX : </p>
 <pre><code> CHROME_DRIVER_VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)
  mkdir -p &quot;$HOME/chrome&quot; || true
  wget &quot;http://chromedriver.storage.googleapis.com/${CHROME_DRIVER_VERSION}/chromedriver_linux64.zip&quot; -O &quot;$HOME/chrome/chromedriver_linux64_${CHROME_DRIVER_VERSION}.zip&quot;
@@ -425,6 +426,8 @@ Les données peuvent être créées par les étapes du scénario ou comme montag
  sudo ln -s &quot;$HOME/chrome/chromedriver&quot; /usr/local/bin/chromedriver
 </code></pre>
 
+<p>MAC  : </p>
+<p><code>brew cask install chromedriver</code></p>
 <h3 id="note">Note :</h3>
 <p>Ces commandes créent un sous-répertoire pour Chrome dans votre répertoire personnel, télécharge ChromeDriver dans le répertoire créer,décompresse les fichiers et créér un lien symbolique.</p>
 <p>Une fois l'exécution de la commande terminée, vous pouvez utiliser <code>chromedriver dans le terminal.</code></p>
