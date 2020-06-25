@@ -150,7 +150,7 @@ Dans Oro, l'état initial est celui lorsque l'application est installé sans don
 Les scénarios qui testent des fonctionnalités doivent s'appuyer sur cet état et doivent créer toutes les données nécessaires à des vérifications supplémentaires.
 Les données peuvent être créées par les étapes du scénario ou comme montages.
 
-Installez l'application en anglais, sans données de démonstration en mode production/behat à l'aide de la commande suivante:
+Installez l'application en anglais, sans données de démonstration en mode production, sans rabbit et elastic à l'aide de la commande suivante:
 
 ```
  bin/console oro:install  --drop-database --user-name=admin --user-email=admin@example.com  \
