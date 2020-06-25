@@ -118,7 +118,8 @@ Utilisez la configuration par défaut de l'application installée en mode produc
 La configuration de base se trouve dans behat.yml.dist. Chaque application possède son propre fichier behat.yml.dist à la racine du répertoire de l'application.
 Créez votre behat.yml (il est ignoré par git automatiquement et n'est jamais validé dans le référentiel distant), importez la configuration de base et modifiez-la pour l'adapter à votre environnement:
 
-```yaml
+```
+yaml
 imports:
    - ./behat.yml.dist
 
@@ -129,22 +130,7 @@ imports:
              base_url: "http://localhost:8010"
 ```
 
-Créer un fichier parameters_behat.yml si il n'existe pas déja, spécifier une base à part, utiliser le seach engine orm et dbal : 
-```
-database_name: mydbbehat
-search_engine_name: orm
-message_queue_transport: dbal
-```
-
-De plus utilisez un fichier config_behat.yml avec ces lignes au débuts :
-
-```
-imports:
-    - { resource: parameters_behat.yml }
-    - { resource: security.yml }
-    - { resource: services.yml }
-    - { resource: htmlpurifier.yml }
-```
+Configurer votre parameters.yml avec le search engine en orm et dbal pour les messages
 
 ## Installation
 
@@ -204,7 +190,7 @@ Pour exécuter ChromeDriver en arrière-plan, ajoutez le symbole esperluette (&)
 
 `chromedriver --url-base=wd/hub --port=4444 > /tmp/driver.log 2>&1 &`
 
-- Lancer un serveur sur le port spécifié pour l'installation/config behat (ici 8010 )
+- Lancer un serveur sur le port spécifié pour l'installation (ici 8010 )
 
 Avant de commencer, il est fortement recommandé de vous familiariser avec les arguments et les options de Behat. Exécutez `bin/behat --help` pour une description détaillée.
 
