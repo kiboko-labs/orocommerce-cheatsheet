@@ -52,6 +52,10 @@ annotation au-dessus de la fonction à appeler. L’annotation peut contenir une
 des placeholders commençant par deux points. Chaque parenthèse de capture de l’expression rationnelle ou placeholder
 sera un argument de la méthode PHP appelée pour exécuter la phrase du test.
 
+# Architecture :
+
+![](images/Behat.png)
+
 # Conventions :
 
 [Conventions](behat-conventions.md)
@@ -60,9 +64,9 @@ sera un argument de la méthode PHP appelée pour exécuter la phrase du test.
 
 [Configuration](behat-configuration.md)
 
-# Architecture
+# Injection de dépendances
 
-[Architecture](behat-architecture.md)
+[Architecture](behat-symfony.md)
 
 # Autoload Suites
 
