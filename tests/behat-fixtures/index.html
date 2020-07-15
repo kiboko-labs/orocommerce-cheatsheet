@@ -9,7 +9,7 @@
   <meta name="author" content="Kiboko">
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Behat - orocommerce-cheatsheet</title>
+  <title>Behat fixtures - orocommerce-cheatsheet</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../css/theme.css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Behat";
-    var mkdocs_page_input_path = "tests/behat.md";
+    var mkdocs_page_name = "Behat fixtures";
+    var mkdocs_page_input_path = "tests/behat-fixtures.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -140,12 +140,10 @@
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Test tips</span></p>
-                <ul class="current">
+                <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../intro/">Intro</a>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Behat</a>
-    <ul class="current">
-    </ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../behat/">Behat</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../javascript/">Javascript</a>
                     </li>
@@ -172,15 +170,11 @@
     <li><a href="../..">Docs</a> &raquo;</li>
     
       
-        
-          <li>Test tips &raquo;</li>
-        
-      
     
-    <li>Behat</li>
+    <li>Behat fixtures</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/kiboko-labs/orocommerce-cheatsheet/edit/master/docs/tests/behat.md"
+        <a href="https://github.com/kiboko-labs/orocommerce-cheatsheet/edit/master/docs/tests/behat-fixtures.md"
           class="icon icon-github"> Edit on Github</a>
       
     </li>
@@ -191,117 +185,73 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="concepts">Concepts</h1>
-<p>Les informations ci-dessous résume les concepts et les outils qui sont importants pour la compréhension et l’utilisation
-du framework de test inclus dans OroBehatExtension.</p>
-<p><strong>Behavior-driven development (BDD)</strong> est un processus de développement logiciel issu du développement axé sur les tests (TDD).
-Le BDD combine les techniques générales et les principes de TDD avec des idées de conception axée sur le domaine et
-l'analyse d'objet et du design pour fournir aux équipes de développement et de gestion de logiciels des outils partagés et 
-un processus partagé de collaboration pour le développement de logiciels.</p>
-<ol>
-<li>
-<p><a href="https://docs.behat.org/en/v3.0/">Behat</a> est un framework de développement basé sur le comportement pour PHP.
-Cet outil permet de décrire le comportement de l'application voulue en utilisant Php et <a href="https://docs.behat.org/en/latest/user_guide/gherkin.html">Gherking</a>
-Vous pouvez utiliser Behat pour décrire tout ce que vous pouvez décrire dans la logique métier.
-Outils, applications GUI, applications Web, etc.</p>
-</li>
-<li>
-<p><a href="http://mink.behat.org/en/latest/">Mink</a> est une extension de Behat qui vas permettre de controller un navigateur durant les tests en utilisant PHP.
-Il vas utiliser des emulateurs de navigateurs , l'avantage d'utiliser Mink c'est qu'il supprime les différences entres les 
-différents emulateurs de navigateur et leurs drivers.</p>
-</li>
-<li>
-<p><a href="https://www.w3.org/TR/webdriver/">WebDriver</a> est un protocole qui permet de controller des navigateurs en JSON.</p>
-</li>
-<li>
-<p><a href="https://github.com/minkphp/MinkSelenium2Driver">MinkSelenium2Driver</a> vas faire le lien entre Mink vers Selenium en utilisant le protocole WebDriver, c'est un driver universel.</p>
-</li>
-<li>
-<p><a href="https://sites.google.com/a/chromium.org/chromedriver/">ChromeDriver</a> est un driver comme Selenium2Driver mais ne fonctionne que pour chrome et a la particularité de fonctionner sans Selenium ce qui rend les tests plus rapides sur chrome.</p>
-</li>
-<li>
-<p><a href="https://www.selenium.dev/">Selenium</a> est un framework de test informatique développé en Java qui est composé de 3 grandes briques :</p>
+                <h3 id="feature-fixtures">Feature Fixtures :</h3>
+<p>Chaque fois que behat exécute une nouvelle fonctionnalité, l'état de l'application est réinitialisé par défaut :
+il n'y a qu'un seul utilisateur administrateur, une organisation, une unité commerciale et des rôles par défaut dans la base de données.</p>
+<p>Les tests de fonctionnalités doivent s'appuyer sur les données disponibles dans l'application après l'exécution de la commande oro: install. Dans la plupart des cas, cela ne suffit pas.</p>
+<p>Ainsi, vous avez deux façons d'obtenir plus de données dans le système: en utilisant des fixtures de base ou des fixtures alice.</p>
+<h3 id="fixtures-basiques">Fixtures basiques</h3>
+<p>Vous pouvez créer un nombre quelconque d'entités dans les tests de fonctionnalités. <code>FixtureContext</code> devine la classe d'entité, crée le nombre nécessaire d'objets
+et utilise <a href="https://github.com/fzaninotto/faker">faker</a> pour remplir les champs requis lorsque leur valeur n'a pas été spécifiée explicitement.</p>
+<p>Vous utilisez à la fois les références faker et les <a href="https://doc.oroinc.com/master/backend/automated-tests/behat/#behat-entity-references"> références d'entité</a> dans les appareils en ligne.</p>
+<pre><code> Given the following contacts:
+   | First Name | Last Name | Email     |
+   | Joan       | Anderson  | &lt;email()&gt; |
+   | Craig      | Bishop    | &lt;email()&gt; |
+   | Jean       | Castillo  | &lt;email()&gt; |
+   | Willie     | Chavez    | &lt;email()&gt; |
+   | Arthur     | Fisher    | &lt;email()&gt; |
+   | Wanda      | Ford      | &lt;email()&gt; |
+ And I have 5 Cases
+ And there are 5 calls
+ And there are two users with their own 7 Accounts
+ And there are 3 users with their own 3 Tasks
+ And there is user with its own Account
+</code></pre>
+
+<h3 id="fixtures-alice">Fixtures Alice</h3>
+<p>Parfois, vous avez besoin de nombreuses entités différentes avec des relations complexes. Dans de tels cas, vous pouvez utiliser des fixtures Alice.
+ Alice est une bibliothèque qui vous permet de créer facilement des fixtures au format yml.</p>
+<h4 id="note">NOTE :</h4>
+<p>Voir la <a href="https://github.com/nelmio/alice/blob/2.x/README.md">documentation d'Alice</a> pour plus d'informations.</p>
+<p>Les fixtures doivent être situés dans le répertoire {BundleName}/Tests/Behat/Features/Fixtures. Pour charger une fixture avant l'exécution des tests de fonctionnalité,
+ajoutez une balise (annotation) qui est construite à l'aide de la convention suivante <code>@fixture-BundleName:fixture_file_name.yml</code>, par exemple:</p>
+<pre><code class="yaml"> @fixture-OroCRMBundle:mass_action.yml
+ Feature: Mass Delete records
+</code></pre>
+
+<p>Il est également possible de charger des fixtures pour tout autre bundle disponible pour l'application.</p>
+<p>Par exemple:</p>
+<pre><code class="yaml"> @fixture-OroUserBundle:user.yml
+ @fixture-OroOrganizationBundle:BusinessUnit.yml
+ Feature: Adding attributes for workflow transition
+</code></pre>
+
+<p>De plus, Alice vous permet <a href="https://github.com/nelmio/alice/blob/a060587f3c90edd92a65c6c0d163972f49bc4e21/doc/fixtures-refactoring.md#including-files">d'inclure des fichiers</a> via l'extension, vous pouvez donc importer des fichiers à partir d'autres bundles:</p>
+<pre><code class="yaml"> include:
+     - '@OroCustomerBundle/Tests/Behat/Features/Fixtures/CustomerUserAmandaRCole.yml'
+</code></pre>
+
+<p><strong>Vous devez toujours inclure les fixtures d'autres bundles avec des entités qui ont été déclarées dans ce bundle</strong></p>
+<h2 id="references-dentites">Références d'entités</h2>
+<p>Vous pouvez utiliser des références aux entités dans les fixtures de base et <a href="https://github.com/nelmio/alice/blob/2.x/doc/relations-handling.md#handling-relations">alice</a>.</p>
+<p><code>{Bundle}\Tests\Behat\ReferenceRepositoryInitializer</code>  est utilisé pour créer des références pour des objets qui existent déjà dans la base de données.</p>
 <ul>
-<li>Selenium WebDriver : Framework de test fonctionnel permettant l’écriture de scripts de test automatisés en differents language.Il met a disposition une API pour controller tout les navigateurs.</li>
-<li>Selenium IDE : qui permet de créer des script , sous forme d'extension chrome our firefox, pour controller des navigateurs.</li>
-<li>Selenium Grid : Qui se compose d'un hub et de nodes, permet de lancer des test sur plusieurs navigateurs en même temps.</li>
+<li>Il est interdit de modifier ou d'ajouter de nouvelles entités dans le  Initializer.</li>
+<li>Il doit implémenter <code>ReferenceRepositoryInitializerInterface</code> et ne doit pas avoir de dépendances.</li>
+<li>Pour afficher toutes les références, utilisez la commande <code>bin/behat --available-references</code>.</li>
 </ul>
-</li>
-<li>
-<p><a href="https://github.com/Behat/Symfony2Extension/blob/master/doc/index.rst">Symfony2Extension</a> qui ajoute une intégration pour Symfony avec Behat.</p>
-</li>
-<li>
-<p><a href="https://github.com/oroinc/platform/blob/master/src/Oro/Bundle/TestFrameworkBundle/Behat/ServiceContainer/OroTestFrameworkExtension.php">OroTestFrameworkExtension</a> est une extension de behat pour intégrer Oro, il ajoute des features tel que :</p>
+<p>Les références les plus utilisées sont:</p>
 <ul>
-<li>l'autoloading des contextes, permet de construire des suites de tests spécifiques.</li>
-<li>la possibilité de déclarer des 'Elements' facilement dans le fichier de config behat.yml</li>
-<li>Mapper facilement des champs de formulaires</li>
-</ul>
-</li>
-<li>
-<p><a href="https://github.com/oroinc/platform/blob/master/src/Oro/Bundle/TestFrameworkBundle/Behat/Element/OroElementFactory.php">OroElementFactory</a> est une classe qui permet de manipuler des éléments sur la page: </p>
-<ul>
-<li><code>hasElement($name)</code></li>
-<li><code>createElement($name, NodeElement $context = null)</code></li>
-<li><code>guessElement($name)</code></li>
-<li><code>findElementContains($name, $text, Element $context = null)</code></li>
-<li><code>findElementContainsByCss($name, $text, Element $context = null)</code></li>
-<li><code>findElementContainsByXPath($name, $text, $useChildren = true, Element $context = null)</code></li>
-<li><code>findAllElements($name, NodeElement $context = null)</code></li>
-<li><code>getPage()</code></li>
-<li><code>findElement($name, $selectorCallback, Element $context = null)</code></li>
-<li>et d'autre fonctions ....</li>
-</ul>
-</li>
-<li>
-<p>Le <strong>contexte</strong> : Chaque phrase en Gherkin est associée à une méthode PHP grâce aux classes de contexte.La phrase est située dans une
-annotation au-dessus de la fonction à appeler. L’annotation peut contenir une expression rationnelle ou une phrase avec
-des placeholders commençant par deux points. Chaque parenthèse de capture de l’expression rationnelle ou placeholder
-sera un argument de la méthode PHP appelée pour exécuter la phrase du test.</p>
-</li>
-</ol>
-<h1 id="conventions">Conventions :</h1>
-<p><a href="../behat-conventions/">Conventions</a></p>
-<h1 id="configuration">Configuration</h1>
-<p><a href="../behat-configuration/">Configuration</a></p>
-<h1 id="architecture">Architecture</h1>
-<p><a href="../behat-architecture/">Architecture</a></p>
-<h1 id="autoload-suites">Autoload Suites</h1>
-<p><a href="../behat-autoloading/">Autoloading</a></p>
-<h1 id="feature-isolation">Feature Isolation</h1>
-<p><a href="../behat-isolation/">Isolation</a></p>
-<h1 id="elements-et-formulaires">Elements et formulaires</h1>
-<p><a href="../behat-elements-form/">Elements et formulaire</a></p>
-<h1 id="fixtures">Fixtures :</h1>
-<p><a href="../behat-fixtures/">Fixtures</a></p>
-<h1 id="ecriture-des-tests">Ecriture des tests</h1>
-<p><a href="../behat-exemples/">Exemples d'un test behat</a></p>
-<h1 id="autres">Autres :</h1>
-<p><a href="../behat-tips/">Tips,tricks,bugfix</a></p>
-<h1 id="docs-relatives">Docs relatives</h1>
-<ul>
-<li><a href="https://docs.behat.org/en/latest/guides.html">Behat</a></li>
-<li><a href="https://cucumber.io/docs/gherkin/">Gherkin</a></li>
-<li><a href="http://mink.behat.org/en/latest/">Mink</a></li>
-<li><a href="https://www.w3.org/TR/webdriver/">WebDriver</a></li>
-<li><a href="https://github.com/minkphp/MinkSelenium2Driver">MinkSelenium2Driver</a></li>
-<li><a href="https://sites.google.com/a/chromium.org/chromedriver/">ChromeDriver</a></li>
-<li><a href="https://www.selenium.dev/">Selenium</a></li>
-<li><a href="https://github.com/Behat/Symfony2Extension/blob/master/doc/index.rst">Symfony2Extension</a></li>
+<li><code>@admin</code>- Utilisateur Admin</li>
+<li><code>@adminRole</code> - Administrator role</li>
+<li><code>@organization</code> - Default organization</li>
+<li><code>@business_unit</code> - Default business unit</li>
 </ul>
               
             </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../javascript/" class="btn btn-neutral float-right" title="Javascript">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../intro/" class="btn btn-neutral" title="Intro"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
@@ -325,10 +275,6 @@ sera un argument de la méthode PHP appelée pour exécuter la phrase du test.</
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../intro/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../javascript/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

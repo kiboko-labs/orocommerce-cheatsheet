@@ -9,7 +9,7 @@
   <meta name="author" content="Kiboko">
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Behat - orocommerce-cheatsheet</title>
+  <title>Behat exemples - orocommerce-cheatsheet</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../css/theme.css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Behat";
-    var mkdocs_page_input_path = "tests/behat.md";
+    var mkdocs_page_name = "Behat exemples";
+    var mkdocs_page_input_path = "tests/behat-exemples.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -140,12 +140,10 @@
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Test tips</span></p>
-                <ul class="current">
+                <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../intro/">Intro</a>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Behat</a>
-    <ul class="current">
-    </ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../behat/">Behat</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../javascript/">Javascript</a>
                     </li>
@@ -172,15 +170,11 @@
     <li><a href="../..">Docs</a> &raquo;</li>
     
       
-        
-          <li>Test tips &raquo;</li>
-        
-      
     
-    <li>Behat</li>
+    <li>Behat exemples</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/kiboko-labs/orocommerce-cheatsheet/edit/master/docs/tests/behat.md"
+        <a href="https://github.com/kiboko-labs/orocommerce-cheatsheet/edit/master/docs/tests/behat-exemples.md"
           class="icon icon-github"> Edit on Github</a>
       
     </li>
@@ -191,117 +185,67 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="concepts">Concepts</h1>
-<p>Les informations ci-dessous résume les concepts et les outils qui sont importants pour la compréhension et l’utilisation
-du framework de test inclus dans OroBehatExtension.</p>
-<p><strong>Behavior-driven development (BDD)</strong> est un processus de développement logiciel issu du développement axé sur les tests (TDD).
-Le BDD combine les techniques générales et les principes de TDD avec des idées de conception axée sur le domaine et
-l'analyse d'objet et du design pour fournir aux équipes de développement et de gestion de logiciels des outils partagés et 
-un processus partagé de collaboration pour le développement de logiciels.</p>
+                <h3 id="ecrire-une-feature">Ecrire une feature</h3>
+<p>Chaque bundle doit contenir ses propres tests behat pour les fonctionnalités du répertoire <code>{BundleName}/Tests/Behat/Features/</code>.
+Chaque fonctionnalité est un fichier distinct avec l'extension <code>.feature</code> et une syntaxe spécifique.</p>
+<h4 id="note">Note :</h4>
+<p>Voir la doc de <a href="https://cucumber.io/docs/">Cucumber</a> pour plus d'infos.</p>
+<p>Une fonctionnalité commence par ce qui suit:</p>
+<ul>
+<li>Le mot clé <code>Feature</code>: et le nom de la fonctionnalité (ceux-ci doivent rester sur la même ligne),</li>
+<li>Une description facultative (peut être formatée sur plusieurs lignes). Une description significative est fortement recommandée.</li>
+</ul>
+<p>Vient ensuite le scénario de fonctionnalité - un exemple spécifique qui illustre une règle métier et se compose d'étapes séquentielles.
+En plus d'être une spécification de test et une documentation de test, un scénario définit les étapes de test et sert de spécification exécutable du système.</p>
+<p>Normalement, une étape commence par <strong>Given</strong>, <strong>When</strong> ou <strong>Then</strong>.</p>
+<p>S'il existe plusieurs étapes Given ou When les unes sous les autres, vous pouvez utiliser <strong>And</strong> ou <strong>But</strong> pour les organiser en groupes logiques.
+Cucumber ne fait pas de différence entre les mots clés, mais le choix du bon est important pour la lisibilité du scénario dans son ensemble.</p>
+<p>Jetez un œil à la feature login <code>login.feature</code> dans <a href="https://github.com/oroinc/platform/blob/50047c1d8abc5f811d0db759b501b8d27b0bff65/src/Oro/Bundle/UserBundle/Tests/Behat/Features/login.feature">OroUserBundle</a></p>
+<pre><code>Feature: User login
+   In order to login in application
+   As an OroCRM admin
+   I need to be able to authenticate
+
+ Scenario: Success login
+   Given I am on &quot;/user/login&quot;
+   When I fill &quot;Login Form&quot; with:
+       | Username | admin |
+       | Password | admin |
+   And I press &quot;Log in&quot;
+   Then I should be on &quot;/&quot;
+
+ Scenario Outline: Fail login
+   Given I am on &quot;/user/login&quot;
+   When I fill &quot;Login Form&quot; with:
+       | Username | &lt;login&gt;    |
+       | Password | &lt;password&gt; |
+   And I press &quot;Log in&quot;
+   Then I should be on &quot;/user/login&quot;
+   And I should see &quot;Invalid user name or password.&quot;
+
+   Examples:
+   | login | password |
+   | user  | pass     |
+   | user2 | pass2    |
+</code></pre>
+
 <ol>
-<li>
-<p><a href="https://docs.behat.org/en/v3.0/">Behat</a> est un framework de développement basé sur le comportement pour PHP.
-Cet outil permet de décrire le comportement de l'application voulue en utilisant Php et <a href="https://docs.behat.org/en/latest/user_guide/gherkin.html">Gherking</a>
-Vous pouvez utiliser Behat pour décrire tout ce que vous pouvez décrire dans la logique métier.
-Outils, applications GUI, applications Web, etc.</p>
-</li>
-<li>
-<p><a href="http://mink.behat.org/en/latest/">Mink</a> est une extension de Behat qui vas permettre de controller un navigateur durant les tests en utilisant PHP.
-Il vas utiliser des emulateurs de navigateurs , l'avantage d'utiliser Mink c'est qu'il supprime les différences entres les 
-différents emulateurs de navigateur et leurs drivers.</p>
-</li>
-<li>
-<p><a href="https://www.w3.org/TR/webdriver/">WebDriver</a> est un protocole qui permet de controller des navigateurs en JSON.</p>
-</li>
-<li>
-<p><a href="https://github.com/minkphp/MinkSelenium2Driver">MinkSelenium2Driver</a> vas faire le lien entre Mink vers Selenium en utilisant le protocole WebDriver, c'est un driver universel.</p>
-</li>
-<li>
-<p><a href="https://sites.google.com/a/chromium.org/chromedriver/">ChromeDriver</a> est un driver comme Selenium2Driver mais ne fonctionne que pour chrome et a la particularité de fonctionner sans Selenium ce qui rend les tests plus rapides sur chrome.</p>
-</li>
-<li>
-<p><a href="https://www.selenium.dev/">Selenium</a> est un framework de test informatique développé en Java qui est composé de 3 grandes briques :</p>
-<ul>
-<li>Selenium WebDriver : Framework de test fonctionnel permettant l’écriture de scripts de test automatisés en differents language.Il met a disposition une API pour controller tout les navigateurs.</li>
-<li>Selenium IDE : qui permet de créer des script , sous forme d'extension chrome our firefox, pour controller des navigateurs.</li>
-<li>Selenium Grid : Qui se compose d'un hub et de nodes, permet de lancer des test sur plusieurs navigateurs en même temps.</li>
-</ul>
-</li>
-<li>
-<p><a href="https://github.com/Behat/Symfony2Extension/blob/master/doc/index.rst">Symfony2Extension</a> qui ajoute une intégration pour Symfony avec Behat.</p>
-</li>
-<li>
-<p><a href="https://github.com/oroinc/platform/blob/master/src/Oro/Bundle/TestFrameworkBundle/Behat/ServiceContainer/OroTestFrameworkExtension.php">OroTestFrameworkExtension</a> est une extension de behat pour intégrer Oro, il ajoute des features tel que :</p>
-<ul>
-<li>l'autoloading des contextes, permet de construire des suites de tests spécifiques.</li>
-<li>la possibilité de déclarer des 'Elements' facilement dans le fichier de config behat.yml</li>
-<li>Mapper facilement des champs de formulaires</li>
-</ul>
-</li>
-<li>
-<p><a href="https://github.com/oroinc/platform/blob/master/src/Oro/Bundle/TestFrameworkBundle/Behat/Element/OroElementFactory.php">OroElementFactory</a> est une classe qui permet de manipuler des éléments sur la page: </p>
-<ul>
-<li><code>hasElement($name)</code></li>
-<li><code>createElement($name, NodeElement $context = null)</code></li>
-<li><code>guessElement($name)</code></li>
-<li><code>findElementContains($name, $text, Element $context = null)</code></li>
-<li><code>findElementContainsByCss($name, $text, Element $context = null)</code></li>
-<li><code>findElementContainsByXPath($name, $text, $useChildren = true, Element $context = null)</code></li>
-<li><code>findAllElements($name, NodeElement $context = null)</code></li>
-<li><code>getPage()</code></li>
-<li><code>findElement($name, $selectorCallback, Element $context = null)</code></li>
-<li>et d'autre fonctions ....</li>
-</ul>
-</li>
-<li>
-<p>Le <strong>contexte</strong> : Chaque phrase en Gherkin est associée à une méthode PHP grâce aux classes de contexte.La phrase est située dans une
-annotation au-dessus de la fonction à appeler. L’annotation peut contenir une expression rationnelle ou une phrase avec
-des placeholders commençant par deux points. Chaque parenthèse de capture de l’expression rationnelle ou placeholder
-sera un argument de la méthode PHP appelée pour exécuter la phrase du test.</p>
-</li>
+<li>La ligne <code>Feature: User login</code> démarre la fonctionnalité et lui donne un titre.</li>
+<li>Behat n'analyse pas les trois lignes de texte suivantes: In order to... As an... I need to...
+Ces lignes fournissent un contexte lisible par l'homme aux personnes qui réviseront ou modifieront cette fonctionnalité. Ils décrivent la valeur commerciale dérivée de l'inclusion de la fonctionnalité dans le logiciel.</li>
+<li>La ligne <code>Scenario: Success login</code> démarre le scénario et fournit une description.</li>
+<li>Les six lignes suivantes représentent les étapes du scénario. Chaque étape correspond à une expression régulière définie dans le contexte.</li>
+<li>La ligne <code>Scenario Outline: Fail login</code> démarre le scénario suivant. Dans le plan du scénario, les placeholders sont utilisés à la place des valeurs réelles
+et les valeurs pour l'exécution du scénario sont fournies sous la forme d'un ensemble d'exemples sous le plan.
+Le scénario vous aide à exécuter ces étapes plusieurs fois, en parcourant les valeurs fournies dans la section <code>Exemples:</code> et en testant ainsi le même flux avec des entrées différentes.
+Le plan du scénario est un modèle qui n'est jamais exécuté seul.
+Au lieu de cela, un scénario qui suit un plan s'exécute une fois pour chaque ligne dans la section <code>Exemples:</code> en dessous (à l'exception de la première ligne d'en-tête qui est ignorée).
+Considérez un espace réservé comme une variable. Il est remplacé par une valeur réelle depuis <code>Exemples:</code>, où le texte entre les crochets d'angle de l'espace réservé (par exemple, <login>) correspond au texte de l'en-tête de la colonne du tableau (par exemple, login).</li>
 </ol>
-<h1 id="conventions">Conventions :</h1>
-<p><a href="../behat-conventions/">Conventions</a></p>
-<h1 id="configuration">Configuration</h1>
-<p><a href="../behat-configuration/">Configuration</a></p>
-<h1 id="architecture">Architecture</h1>
-<p><a href="../behat-architecture/">Architecture</a></p>
-<h1 id="autoload-suites">Autoload Suites</h1>
-<p><a href="../behat-autoloading/">Autoloading</a></p>
-<h1 id="feature-isolation">Feature Isolation</h1>
-<p><a href="../behat-isolation/">Isolation</a></p>
-<h1 id="elements-et-formulaires">Elements et formulaires</h1>
-<p><a href="../behat-elements-form/">Elements et formulaire</a></p>
-<h1 id="fixtures">Fixtures :</h1>
-<p><a href="../behat-fixtures/">Fixtures</a></p>
-<h1 id="ecriture-des-tests">Ecriture des tests</h1>
-<p><a href="../behat-exemples/">Exemples d'un test behat</a></p>
-<h1 id="autres">Autres :</h1>
-<p><a href="../behat-tips/">Tips,tricks,bugfix</a></p>
-<h1 id="docs-relatives">Docs relatives</h1>
-<ul>
-<li><a href="https://docs.behat.org/en/latest/guides.html">Behat</a></li>
-<li><a href="https://cucumber.io/docs/gherkin/">Gherkin</a></li>
-<li><a href="http://mink.behat.org/en/latest/">Mink</a></li>
-<li><a href="https://www.w3.org/TR/webdriver/">WebDriver</a></li>
-<li><a href="https://github.com/minkphp/MinkSelenium2Driver">MinkSelenium2Driver</a></li>
-<li><a href="https://sites.google.com/a/chromium.org/chromedriver/">ChromeDriver</a></li>
-<li><a href="https://www.selenium.dev/">Selenium</a></li>
-<li><a href="https://github.com/Behat/Symfony2Extension/blob/master/doc/index.rst">Symfony2Extension</a></li>
-</ul>
               
             </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../javascript/" class="btn btn-neutral float-right" title="Javascript">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../intro/" class="btn btn-neutral" title="Intro"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
@@ -325,10 +269,6 @@ sera un argument de la méthode PHP appelée pour exécuter la phrase du test.</
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../intro/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../javascript/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

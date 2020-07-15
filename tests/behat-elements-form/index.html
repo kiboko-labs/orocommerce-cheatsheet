@@ -9,7 +9,7 @@
   <meta name="author" content="Kiboko">
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Behat - orocommerce-cheatsheet</title>
+  <title>Behat elements form - orocommerce-cheatsheet</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../css/theme.css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Behat";
-    var mkdocs_page_input_path = "tests/behat.md";
+    var mkdocs_page_name = "Behat elements form";
+    var mkdocs_page_input_path = "tests/behat-elements-form.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -140,12 +140,10 @@
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Test tips</span></p>
-                <ul class="current">
+                <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../intro/">Intro</a>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Behat</a>
-    <ul class="current">
-    </ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../behat/">Behat</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../javascript/">Javascript</a>
                     </li>
@@ -172,15 +170,11 @@
     <li><a href="../..">Docs</a> &raquo;</li>
     
       
-        
-          <li>Test tips &raquo;</li>
-        
-      
     
-    <li>Behat</li>
+    <li>Behat elements form</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/kiboko-labs/orocommerce-cheatsheet/edit/master/docs/tests/behat.md"
+        <a href="https://github.com/kiboko-labs/orocommerce-cheatsheet/edit/master/docs/tests/behat-elements-form.md"
           class="icon icon-github"> Edit on Github</a>
       
     </li>
@@ -191,117 +185,152 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="concepts">Concepts</h1>
-<p>Les informations ci-dessous résume les concepts et les outils qui sont importants pour la compréhension et l’utilisation
-du framework de test inclus dans OroBehatExtension.</p>
-<p><strong>Behavior-driven development (BDD)</strong> est un processus de développement logiciel issu du développement axé sur les tests (TDD).
-Le BDD combine les techniques générales et les principes de TDD avec des idées de conception axée sur le domaine et
-l'analyse d'objet et du design pour fournir aux équipes de développement et de gestion de logiciels des outils partagés et 
-un processus partagé de collaboration pour le développement de logiciels.</p>
+                <p>Elements est une couche de service dans les tests behat. Ils enveloppent la logique métier complexe. Prenez une minute pour lire la base des <a href="https://github.com/minkphp/Mink/blob/9ea1cebe3dc529ba3861d87c818f045362c40484/src/Element/NodeElement.php">NodeElement Mink</a></p>
+<p>Il y a de nombreuses méthodes publiques; certains d'entre eux ne s'appliquent qu'à certains éléments. Chaque test Bundle peut contenir un nombre particulier d'éléments.
+Tous les éléments doivent être décrits dans {BundleName} {BundleName}/Tests/Behat/behat.yml de la manière suivante:</p>
+<pre><code class="yaml"> oro_behat_extension:
+   elements:
+     Login:
+       selector: '#login-form'
+       class: Oro\Bundle\TestFrameworkBundle\Behat\Element\Form
+       options:
+         mapping:
+           Username: '_username'
+           Password: '_password'
+</code></pre>
+
+<p>ou :</p>
+<ol>
+<li><code>Login</code> est un nom d'élément qui DOIT être unique. L'élément peut être créé dans un contexte par OroElementFactory par son nom:</li>
+</ol>
+<pre><code class="php">$this-&gt;elementFactory-&gt;createElement('Login');
+</code></pre>
+
+<ol>
+<li>selector` définit comment le driver Web doit trouver l'élément sur la page. Par défaut, lorsque le type de sélecteur n'est pas spécifié, le sélecteur css est utilisé.
+Le sélecteur XPath est également pris en charge et peut être fourni avec la configuration suivante:</li>
+</ol>
+<pre><code class="yaml"> selector:
+     type: xpath
+     locator: //span[id='mySpan']/ancestor::form/
+</code></pre>
+
 <ol>
 <li>
-<p><a href="https://docs.behat.org/en/v3.0/">Behat</a> est un framework de développement basé sur le comportement pour PHP.
-Cet outil permet de décrire le comportement de l'application voulue en utilisant Php et <a href="https://docs.behat.org/en/latest/user_guide/gherkin.html">Gherking</a>
-Vous pouvez utiliser Behat pour décrire tout ce que vous pouvez décrire dans la logique métier.
-Outils, applications GUI, applications Web, etc.</p>
+<p>Le namespace de l'élément (doit être étendu à partir de Oro\Bundle\TestFrameworkBundle\Behat\Element\Element<code>).
+Lorsqu'elle est omise, la classe</code>Oro\Bundle\TestFrameworkBundle\Behat\Element\Element` est utilisée par défaut.</p>
 </li>
 <li>
-<p><a href="http://mink.behat.org/en/latest/">Mink</a> est une extension de Behat qui vas permettre de controller un navigateur durant les tests en utilisant PHP.
-Il vas utiliser des emulateurs de navigateurs , l'avantage d'utiliser Mink c'est qu'il supprime les différences entres les 
-différents emulateurs de navigateur et leurs drivers.</p>
-</li>
-<li>
-<p><a href="https://www.w3.org/TR/webdriver/">WebDriver</a> est un protocole qui permet de controller des navigateurs en JSON.</p>
-</li>
-<li>
-<p><a href="https://github.com/minkphp/MinkSelenium2Driver">MinkSelenium2Driver</a> vas faire le lien entre Mink vers Selenium en utilisant le protocole WebDriver, c'est un driver universel.</p>
-</li>
-<li>
-<p><a href="https://sites.google.com/a/chromium.org/chromedriver/">ChromeDriver</a> est un driver comme Selenium2Driver mais ne fonctionne que pour chrome et a la particularité de fonctionner sans Selenium ce qui rend les tests plus rapides sur chrome.</p>
-</li>
-<li>
-<p><a href="https://www.selenium.dev/">Selenium</a> est un framework de test informatique développé en Java qui est composé de 3 grandes briques :</p>
-<ul>
-<li>Selenium WebDriver : Framework de test fonctionnel permettant l’écriture de scripts de test automatisés en differents language.Il met a disposition une API pour controller tout les navigateurs.</li>
-<li>Selenium IDE : qui permet de créer des script , sous forme d'extension chrome our firefox, pour controller des navigateurs.</li>
-<li>Selenium Grid : Qui se compose d'un hub et de nodes, permet de lancer des test sur plusieurs navigateurs en même temps.</li>
-</ul>
-</li>
-<li>
-<p><a href="https://github.com/Behat/Symfony2Extension/blob/master/doc/index.rst">Symfony2Extension</a> qui ajoute une intégration pour Symfony avec Behat.</p>
-</li>
-<li>
-<p><a href="https://github.com/oroinc/platform/blob/master/src/Oro/Bundle/TestFrameworkBundle/Behat/ServiceContainer/OroTestFrameworkExtension.php">OroTestFrameworkExtension</a> est une extension de behat pour intégrer Oro, il ajoute des features tel que :</p>
-<ul>
-<li>l'autoloading des contextes, permet de construire des suites de tests spécifiques.</li>
-<li>la possibilité de déclarer des 'Elements' facilement dans le fichier de config behat.yml</li>
-<li>Mapper facilement des champs de formulaires</li>
-</ul>
-</li>
-<li>
-<p><a href="https://github.com/oroinc/platform/blob/master/src/Oro/Bundle/TestFrameworkBundle/Behat/Element/OroElementFactory.php">OroElementFactory</a> est une classe qui permet de manipuler des éléments sur la page: </p>
-<ul>
-<li><code>hasElement($name)</code></li>
-<li><code>createElement($name, NodeElement $context = null)</code></li>
-<li><code>guessElement($name)</code></li>
-<li><code>findElementContains($name, $text, Element $context = null)</code></li>
-<li><code>findElementContainsByCss($name, $text, Element $context = null)</code></li>
-<li><code>findElementContainsByXPath($name, $text, $useChildren = true, Element $context = null)</code></li>
-<li><code>findAllElements($name, NodeElement $context = null)</code></li>
-<li><code>getPage()</code></li>
-<li><code>findElement($name, $selectorCallback, Element $context = null)</code></li>
-<li>et d'autre fonctions ....</li>
-</ul>
-</li>
-<li>
-<p>Le <strong>contexte</strong> : Chaque phrase en Gherkin est associée à une méthode PHP grâce aux classes de contexte.La phrase est située dans une
-annotation au-dessus de la fonction à appeler. L’annotation peut contenir une expression rationnelle ou une phrase avec
-des placeholders commençant par deux points. Chaque parenthèse de capture de l’expression rationnelle ou placeholder
-sera un argument de la méthode PHP appelée pour exécuter la phrase du test.</p>
+<p><code>options</code> est un tableau d'options supplémentaires stockées dans la propriété options de la classe Element.
+Il est fortement recommandé de fournir une classe avec des options de mappage pour les éléments de formulaire, car cela augmente la vitesse de test et garantit un mappage de champ plus précis.</p>
 </li>
 </ol>
-<h1 id="conventions">Conventions :</h1>
-<p><a href="../behat-conventions/">Conventions</a></p>
-<h1 id="configuration">Configuration</h1>
-<p><a href="../behat-configuration/">Configuration</a></p>
-<h1 id="architecture">Architecture</h1>
-<p><a href="../behat-architecture/">Architecture</a></p>
-<h1 id="autoload-suites">Autoload Suites</h1>
-<p><a href="../behat-autoloading/">Autoloading</a></p>
-<h1 id="feature-isolation">Feature Isolation</h1>
-<p><a href="../behat-isolation/">Isolation</a></p>
-<h1 id="elements-et-formulaires">Elements et formulaires</h1>
-<p><a href="../behat-elements-form/">Elements et formulaire</a></p>
-<h1 id="fixtures">Fixtures :</h1>
-<p><a href="../behat-fixtures/">Fixtures</a></p>
-<h1 id="ecriture-des-tests">Ecriture des tests</h1>
-<p><a href="../behat-exemples/">Exemples d'un test behat</a></p>
-<h1 id="autres">Autres :</h1>
-<p><a href="../behat-tips/">Tips,tricks,bugfix</a></p>
-<h1 id="docs-relatives">Docs relatives</h1>
-<ul>
-<li><a href="https://docs.behat.org/en/latest/guides.html">Behat</a></li>
-<li><a href="https://cucumber.io/docs/gherkin/">Gherkin</a></li>
-<li><a href="http://mink.behat.org/en/latest/">Mink</a></li>
-<li><a href="https://www.w3.org/TR/webdriver/">WebDriver</a></li>
-<li><a href="https://github.com/minkphp/MinkSelenium2Driver">MinkSelenium2Driver</a></li>
-<li><a href="https://sites.google.com/a/chromium.org/chromedriver/">ChromeDriver</a></li>
-<li><a href="https://www.selenium.dev/">Selenium</a></li>
-<li><a href="https://github.com/Behat/Symfony2Extension/blob/master/doc/index.rst">Symfony2Extension</a></li>
-</ul>
+<h2 id="mappage-des-champs-de-formulaire">Mappage des champs de formulaire</h2>
+<p>Par défaut, les tests utilisent le <a href="http://mink.behat.org/en/latest/guides/traversing-pages.html#named-selectors">sélecteur de champ nommé</a>  pour mapper les champs du formulaire.
+Le sélecteur de nom de champ a recherché le champ par son identifiant, son nom, son label ou son placeholder.
+Vous êtes libre d'utiliser n'importe quel sélecteur pour mapper des champs de formulaire ou encapsuler un élément dans l'élément behat particulier.</p>
+<pre><code class="yaml"> oro_behat_extension:
+   elements:
+     Payment Method Config Type Field:
+       class: Oro\Bundle\PaymentBundle\Tests\Behat\Element\PaymentMethodConfigType
+     PaymentRuleForm:
+       selector: &quot;form[id^='oro_payment_methods_configs_rule']&quot;
+       class: Oro\Bundle\TestFrameworkBundle\Behat\Element\Form
+       options:
+         mapping:
+           Method:
+             type: 'xpath'
+             locator: '//div[@id[starts-with(.,&quot;uniform-oro_payment_methods_configs_rule_method&quot;)]]'
+             element: Payment Method Config Type Field
+</code></pre>
+
+<p>Vous devez maintenant implémenter la méthode <code>setValue</code> de l'élément:</p>
+<pre><code class="php">&lt;?php
+ namespace Oro\Bundle\PaymentBundle\Tests\Behat\Element;
+ use Oro\Bundle\TestFrameworkBundle\Behat\Element\Element;
+ class PaymentMethodConfigType extends Element
+ {
+     /**
+      * {@inheritdoc}
+      */
+     public function setValue($value)
+     {
+         $values = is_array($value) ? $value : [$value];
+         foreach ($values as $item) {
+             $parentField = $this-&gt;getParent()-&gt;getParent()-&gt;getParent()-&gt;getParent();
+             $field = $parentField-&gt;find('css', 'select');
+             self::assertNotNull($field, 'Select payment method field not found');
+             $field-&gt;setValue($item);
+             $parentField-&gt;clickLink('Add');
+             $this-&gt;getDriver()-&gt;waitForAjax();
+         }
+     }
+ }
+</code></pre>
+
+<p>Vous pouvez maintenant l'utiliser dans une étape standard:</p>
+<pre><code class="yaml"> Feature: Payment Rules CRUD
+   Scenario: Creating Payment Rule
+     Given I login as administrator
+     And I go to System/ Payment Rules
+     And I click &quot;Create Payment Rule&quot;
+     When I fill &quot;Payment Rule Form&quot; with:
+       | Method | PayPal |
+</code></pre>
+
+<h3 id="mappages-de-formulaires-integres">Mappages de formulaires intégrés :</h3>
+<p>Parfois, un formulaire apparaît dans l'iframe. Behat peut passer à l'iframe par son identifiant.
+Pour remplir correctement le formulaire dans l'iframe, spécifiez l'id iframe dans les options du formulaire:</p>
+<pre><code class="yaml">   oro_behat_extension:
+     elements:
+       MagentoContactUsForm:
+         selector: 'div#page'
+         class: Oro\Bundle\TestFrameworkBundle\Behat\Element\Form
+         options:
+           embedded-id: embedded-form
+           mapping:
+             First name: 'oro_magento_contactus_contact_request[firstName]'
+             Last name: 'oro_magento_contactus_contact_request[lastName]'
+</code></pre>
+
+<h2 id="element-de-page">ELement de page</h2>
+<p>L'élément Page encapsule la page Web entière avec son URL et son chemin d'accès à la page. Chaque élément Page doit étendre <code>Oro\Bundle\TestFrameworkBundle\Behat\Element\Page</code>.</p>
+<p>Exemple de Configuration de Page :</p>
+<pre><code class="yaml"> oro_behat_extension:
+   pages:
+     UserProfileView:
+       class: Oro\Bundle\UserBundle\Tests\Behat\Page\UserProfileView
+       route: 'oro_user_profile_view'
+</code></pre>
+
+<p>Exemple de classe de page:</p>
+<pre><code class="php"> namespace Oro\Bundle\UserBundle\Tests\Behat\Page;
+
+ use Oro\Bundle\TestFrameworkBundle\Behat\Element\Page;
+
+ class UserProfileView extends Page
+ {
+     /**
+      * {@inheritdoc}
+      */
+     public function open(array $parameters = [])
+     {
+         $userMenu = $this-&gt;elementFactory-&gt;createElement('UserMenu');
+         $userMenu-&gt;find('css', '[data-toggle=&quot;dropdown&quot;]')-&gt;click();
+
+         $userMenu-&gt;clickLink('My User');
+     }
+ }
+</code></pre>
+
+<p>Vous pouvez maintenant utiliser plusieurs étapes significatives:</p>
+<pre><code class="yaml"> And I open User Profile View page
+ And I should be on User Profile View page
+</code></pre>
               
             </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../javascript/" class="btn btn-neutral float-right" title="Javascript">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../intro/" class="btn btn-neutral" title="Intro"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
@@ -325,10 +354,6 @@ sera un argument de la méthode PHP appelée pour exécuter la phrase du test.</
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../intro/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../javascript/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
