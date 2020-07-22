@@ -28,7 +28,9 @@ Il peut être utile de créer une configuration séparé en copiant ./vendor/oro
 
 Pour exécuter des tests, appelez la commande suivante :
 
-`./vendor/oro/platform/build/node_modules/.bin/karma start ./vendor/oro/platform/build/karma.conf.js.dist --single-run`
+```
+./vendor/oro/platform/build/node_modules/.bin/karma start ./vendor/oro/platform/build/karma.conf.js.dist --single-run
+```
 
 N’oubliez pas de changer le chemin vers le répertoire de plateform/build, s’il est différent dans votre application.
 `
