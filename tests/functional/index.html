@@ -293,21 +293,21 @@ parameters:
     session_handler: null
     locale: en
     secret: ThisTokenIsNotSoSecretChangeIt
-    installed: '2014-08-12T09:05:04-07:00'
+    installed: false
 </code></pre>
 
 <ol>
 <li>Installez l'application dans un environnement de test</li>
 </ol>
-<pre><code>bin/console oro:install 
- --env=test 
- --organization-name=Oro
- --user-name=admin
- --user-email=admin@example.com
- --user-firstname=John
- --user-lastname=Doe
- --user-password=admin
- --sample-data=n
+<pre><code>bin/console oro:install \
+ --env=test  \
+ --organization-name=Oro \
+ --user-name=admin \
+ --user-email=admin@example.com \
+ --user-firstname=John \
+ --user-lastname=Doe \
+ --user-password=admin \
+ --sample-data=n \
  --application-url=http://localhost
 </code></pre>
 
