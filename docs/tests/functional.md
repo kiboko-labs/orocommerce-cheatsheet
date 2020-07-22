@@ -63,20 +63,20 @@ parameters:
     session_handler: null
     locale: en
     secret: ThisTokenIsNotSoSecretChangeIt
-    installed: '2014-08-12T09:05:04-07:00'
+    installed: false
 ```
 3. Installez l'application dans un environnement de test
 
 ```
-bin/console oro:install 
- --env=test 
- --organization-name=Oro
- --user-name=admin
- --user-email=admin@example.com
- --user-firstname=John
- --user-lastname=Doe
- --user-password=admin
- --sample-data=n
+bin/console oro:install \
+ --env=test  \
+ --organization-name=Oro \
+ --user-name=admin \
+ --user-email=admin@example.com \
+ --user-firstname=John \
+ --user-lastname=Doe \
+ --user-password=admin \
+ --sample-data=n \
  --application-url=http://localhost
 ```
 
