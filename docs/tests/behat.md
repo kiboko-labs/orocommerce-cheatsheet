@@ -19,7 +19,9 @@ différents emulateurs de navigateur et leurs drivers.
 
 3. [WebDriver](https://www.w3.org/TR/webdriver/) est un protocole qui permet de controller des navigateurs en JSON.
 
-4. [MinkSelenium2Driver](https://github.com/minkphp/MinkSelenium2Driver) vas faire le lien entre Mink vers Selenium en utilisant le protocole WebDriver, c'est un driver universel.
+4. [Les drivers Mink](https://mink.behat.org/en/latest/guides/drivers.html) ce sont des extensions de mink qui permettent de controller des 'controlleurs/émulateurs' de navigateurs
+tel que le trés connue Selenium2. 
+Dans oro, on utilise Selenium2Driver qui vas faire la passerelle entre Mink et SeleniumWebDriver.
 
 5. [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/) est un driver comme Selenium2Driver mais ne fonctionne que pour chrome et a la particularité de fonctionner sans Selenium ce qui rend les tests plus rapides sur chrome.
 
